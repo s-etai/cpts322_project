@@ -1,43 +1,59 @@
 #include <iostream>
+#include <chrono>
 using namespace std;
-
-
-/*
-
-NOTE: CURRENT FUNCTIONS DEFINTIONS MAYBE WRONG, IMPLEMENT HOWEVER YOU THINK MAKES SESNE
-
-*/
-
 
 
 //forward declarations
 class Teacher;
 class Student;
 
-
 class Assignment {
 
+public:
+    Assignment();
 private:
+    //next assignment in linked list
     Assignment* next;
-    int id;
+
+    //previous asssingment in linked list
+    Assignment* prev;
+
+    //assignment details
+    int courseID;
     int month;
     int day;
-    int grade;
+    int fullPoints;
     string description;
+};
 
-public:
+//doubly linked list
+class AssnList {
+    Assignment *head;
+    Assignment *tail;
+};
 
+//node for a singly linked list
+struct Grade {
+    Grade* next;
+    Assignment* homework;
+    int score;
 };
 
 class Course {
 
 private:
-    Assignment* head;
+    //linked list of assignments
+    AssnList homework;
+
+    //array of pointers to each student
     Student* studentList[50];
+
+    //pointer to the course teacher
     Teacher* courseTeacher;
-    int id;
 
 public:
+    //course id
+    int ID;
 
 
 };
@@ -48,7 +64,9 @@ class User {
 private:
     int username;
     int password;
-    Course* courseList[6];
+
+    //array of pointers to each course //max 18 courses
+    Course* courseList[18];
 
 public:
 
@@ -68,7 +86,12 @@ public:
 
 //derived class from user
 class Student : public User {
-    
+
+protected:
+    // An array of linked lists for the grades
+        // Each element corresponds to a linked list for a course
+    Grade* list[18];
+
 public:
 
     void displayGPA();
