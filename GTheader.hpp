@@ -1,5 +1,5 @@
 #include <iostream>
-#include <chrono>
+#include <vector>
 using namespace std;
 
 
@@ -28,21 +28,17 @@ struct Grade {
 
 class Course {
 public:
-    Course(int id, const string &course_name)
-        : ID(id),courseName(course_name){}
-
-private:
-    Course(int courseID, string courseName);
+    Course(const string &course_name, int id)
+        : courseName(course_name), ID(id){}
+    string courseName;
+    int ID;
 private:
     //array of pointers to each student
-    vector<Student> studentList;
+    //vector<Student> studentList;
     vector<Assignment> assignmentList;
     //pointer to the course teacher
     Teacher* courseTeacher;
-public:
-    //course id
-    int ID;
-    string courseName;
+
 };
 
 
