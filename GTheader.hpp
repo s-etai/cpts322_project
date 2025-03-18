@@ -1,5 +1,8 @@
 #include <iostream>
+
+#include <fstream>
 #include <vector>
+
 using namespace std;
 
 
@@ -47,11 +50,23 @@ private:
 class User {
     
 private:
-    int username;
-    int password;
-
-    //array of pointers to each course //max 18 courses
+    string username;
+    string password;
     vector<Course> courseList;
+
+public:
+    User();
+    User(string new_username, string new_password){
+        username = new_username;
+        password = new_password;
+    }
+
+    string getUsername(){
+        return username;
+    }
+    string getPassword(){
+        return password;
+    }
 
 };
 
@@ -81,6 +96,6 @@ public:
 
 };
 
+void login();
 int menu();
-void displayLogin();
-int validate(string username, string password);
+int validate(string username, string password, fstream& userFile);
