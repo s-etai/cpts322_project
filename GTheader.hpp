@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 #include <fstream>
 #include <vector>
 
@@ -10,16 +11,9 @@ class Teacher;
 class Student;
 
 class Assignment {
-
 public:
     Assignment();
 private:
-    //next assignment in linked list
-    Assignment* next;
-
-    //previous asssingment in linked list
-    Assignment* prev;
-
     //assignment details
     int courseID;
     int month;
@@ -28,37 +22,29 @@ private:
     string description;
 };
 
-//doubly linked list
-class AssnList {
-    Assignment *head;
-    Assignment *tail;
-};
 
 //node for a singly linked list
 struct Grade {
-    Grade* next;
     Assignment* homework;
     int score;
 };
 
 class Course {
-
+public:
+    Course(const string &course_name, int id)
+        : courseName(course_name), ID(id){}
+    string courseName;
+    int ID;
 private:
-    //linked list of assignments
-    AssnList homework;
-
     //array of pointers to each student
-    Student* studentList[50];
-
+    //vector<Student> studentList;
+    vector<Assignment> assignmentList;
     //pointer to the course teacher
     Teacher* courseTeacher;
 
-public:
-    //course id
-    int ID;
-
-
 };
+
+
 
 //base class from which teachers and students inherit from
 class User {
@@ -66,9 +52,7 @@ class User {
 private:
     string username;
     string password;
-
-    //array of pointers to each course //max 18 courses
-    Course* courseList[18];
+    vector<Course> courseList;
 
 public:
     User();
@@ -104,8 +88,7 @@ class Student : public User {
 protected:
     // An array of linked lists for the grades
         // Each element corresponds to a linked list for a course
-    Grade* list[18];
-
+    vector<Grade> gradeList;
 public:
 
     void displayGPA();
@@ -113,6 +96,5 @@ public:
 
 };
 
+void printMainMenu();
 void login();
-int menu();
-int validate(string username, string password, fstream& userFile);
