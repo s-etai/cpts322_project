@@ -1,5 +1,6 @@
 #include "GTheader.hpp"
 
+
 /*Constructor for assginments with 6 variables
 @param courseID ID for course assignment is listed under
 @param day day of due date
@@ -33,7 +34,14 @@ void Teacher::createAssignment(int courseID, int day, int month, int maxPoints, 
     return;
 }
 
-
+void printMainMenu()
+{
+  cout<<"1. Pick course"<<endl;
+  cout<<"2. Add course"<<endl;
+  cout<<"3. View calender"<<endl;
+  cout<<"4. Nodification"<<endl;
+  cout<<"5. Exit"<<endl;
+}
 
 
 void login(){

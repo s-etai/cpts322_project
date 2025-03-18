@@ -1,4 +1,5 @@
 #include <iostream>
+#include <chrono>
 #include <fstream>
 #include <vector>
 
@@ -33,22 +34,23 @@ struct Grade {
 };
 
 class Course {
+  
+private:
+    string courseName;
+    int ID;
+  
 public:
+
     Course(int id, const string &course_name)
         : ID(id),courseName(course_name){}
-
-private:
-    Course(int courseID, string courseName);
-private:
+  
     //array of pointers to each student
     vector<Student> studentList;
+    //vector<Student> studentList;
     vector<Assignment> assignmentList;
     //pointer to the course teacher
     Teacher* courseTeacher;
-public:
-    //course id
-    int ID;
-    string courseName;
+
 };
 
 
@@ -59,7 +61,6 @@ class User {
 protected:
     string username;
     string password;
-
     //array of pointers to each course //max 18 courses
     vector<Course> courseList;
     vector<Assignment*> assignmentList;
@@ -110,6 +111,5 @@ public:
 
 };
 
+void printMainMenu();
 void login();
-int menu();
-int validate(string username, string password, fstream& userFile);
