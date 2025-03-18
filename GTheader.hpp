@@ -120,3 +120,6 @@ public:
 
 void printMainMenu();
 void login();
+void menu();
+void initCourses(vector<Course> &courses);
+void viewCourses(vector<Course> &courses);
