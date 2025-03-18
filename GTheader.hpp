@@ -1,5 +1,5 @@
 #include <iostream>
-
+#include <chrono>
 #include <fstream>
 #include <vector>
 
@@ -96,6 +96,5 @@ public:
 
 };
 
+void printMainMenu();
 void login();
-int menu();
-int validate(string username, string password, fstream& userFile);
