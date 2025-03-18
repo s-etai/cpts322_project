@@ -73,7 +73,10 @@ protected:
     vector<Assignment*> assignmentList;
 
 public:
-    User();
+    User(){
+        username = "";
+        password = "";
+    }
     User(string new_username, string new_password){
         username = new_username;
         password = new_password;

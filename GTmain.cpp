@@ -17,5 +17,9 @@ int main(){
 
 	cout << "TESTING ASSIGNMENT CREATION" << endl << endl;
 
+	Teacher *teachtest = new Teacher();
+
+	teachtest->createAssignment(1234, 17, 3, 10, "Test Assignment to test the create assignment function", "Test Assignment");
+
 
 }

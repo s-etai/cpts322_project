@@ -30,7 +30,7 @@ Assignment::Assignment(int courseID, int day, int month, int maxPoints, string d
 void Teacher::createAssignment(int courseID, int day, int month, int maxPoints, string description, string assignmentName){
     //vector<Assignment>* assignmentList = this->getAssignmentList();
     this->assignmentList.push_back(new Assignment(courseID, day, month, maxPoints, description, assignmentName));
-    cout << "Assignment created!";
+    cout << "Assignment created!" << endl;
     return;
 }
 
