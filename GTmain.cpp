@@ -18,15 +18,23 @@ void initCourses(vector<Course> &courses)
 
 void viewCourses(vector<Course> &courses)
 {
-	for (const auto &course : courses) {
-		cout << "Course Name: " << course.courseName << ", Course ID: " << course.ID << endl;
+	for (auto &course : courses) {
+		cout << "Course Name: " << course.getName() << ", Course ID: " << course.getID() << endl;
 	}
 }
 
-    int menuSelection = -1;
+
+int main(){
+	vector<Course> courses;
+	initCourses(courses);
+	viewCourses(courses);
+
+	cout << endl << endl << endl;
+
+	int menuSelection = -1;
 
     do
-    {
+	{
         printMainMenu();
         do
         {
@@ -49,13 +57,6 @@ void viewCourses(vector<Course> &courses)
                 break;
         }
 
-
     } while (menuSelection != 5);
-
-
-int main(){
-	vector<Course> courses;
-	initCourses(courses);
-	viewCourses(courses);
 
 }

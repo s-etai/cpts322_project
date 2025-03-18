@@ -41,9 +41,16 @@ private:
   
 public:
 
-    Course(int id, const string &course_name)
-        : ID(id),courseName(course_name){}
+    Course(string course_name, int id)
+        : courseName(course_name), ID(id){}
   
+    string getName(){
+        return courseName;
+    }
+    int getID(){
+        return ID;
+    }
+    
     //array of pointers to each student
     vector<Student> studentList;
     //vector<Student> studentList;

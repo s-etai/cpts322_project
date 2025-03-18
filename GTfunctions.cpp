@@ -16,7 +16,7 @@ Assignment::Assignment(int courseID, int day, int month, int maxPoints, string d
     this->maxPoints = maxPoints;
     this->description = description;
     this->assignmentName = assignmentName;
-    this->assignmentID = NULL;
+    this->assignmentID = 0;
 }
 
 /*Function adds assignment at the end of assignment vector
