@@ -1,5 +1,7 @@
 #include <iostream>
-#include <chrono>
+#include <fstream>
+#include <vector>
+
 using namespace std;
 
 
@@ -62,13 +64,25 @@ public:
 class User {
     
 private:
-    int username;
-    int password;
+    string username;
+    string password;
 
     //array of pointers to each course //max 18 courses
     Course* courseList[18];
 
 public:
+    User();
+    User(string new_username, string new_password){
+        username = new_username;
+        password = new_password;
+    }
+
+    string getUsername(){
+        return username;
+    }
+    string getPassword(){
+        return password;
+    }
 
 };
 
@@ -99,6 +113,6 @@ public:
 
 };
 
+void login();
 int menu();
-void displayLogin();
-int validate(string username, string password);
+int validate(string username, string password, fstream& userFile);
