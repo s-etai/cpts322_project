@@ -8,16 +8,9 @@ class Teacher;
 class Student;
 
 class Assignment {
-
 public:
     Assignment();
 private:
-    //next assignment in linked list
-    Assignment* next;
-
-    //previous asssingment in linked list
-    Assignment* prev;
-
     //assignment details
     int courseID;
     int month;
@@ -26,11 +19,6 @@ private:
     string description;
 };
 
-//doubly linked list
-class AssnList {
-    Assignment *head;
-    Assignment *tail;
-};
 
 //node for a singly linked list
 struct Grade {
@@ -42,20 +30,13 @@ struct Grade {
 class Course {
 
 private:
-    //linked list of assignments
-    AssnList homework;
-
     //array of pointers to each student
-    Student* studentList[50];
-
+    vector<Student> studentList;
     //pointer to the course teacher
     Teacher* courseTeacher;
-
 public:
     //course id
     int ID;
-
-
 };
 
 //base class from which teachers and students inherit from
@@ -66,9 +47,7 @@ private:
     int password;
 
     //array of pointers to each course //max 18 courses
-    Course* courseList[18];
-
-public:
+    vector<Course> courseList;
 
 };
 
@@ -90,8 +69,7 @@ class Student : public User {
 protected:
     // An array of linked lists for the grades
         // Each element corresponds to a linked list for a course
-    Grade* list[18];
-
+    vector<Grade> gradeList;
 public:
 
     void displayGPA();
