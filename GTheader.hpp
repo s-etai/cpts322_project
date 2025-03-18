@@ -1,5 +1,6 @@
 #include <iostream>
 #include <chrono>
+#include <vector>
 using namespace std;
 
 
@@ -30,7 +31,7 @@ class Course {
 
 private:
     //array of pointers to each student
-    vector<Student> studentList;
+    //vector<Student> studentList;
     vector<Assignment> assignmentList;
     //pointer to the course teacher
     Teacher* courseTeacher;
@@ -77,6 +78,6 @@ public:
 
 };
 
-int menu();
+void printMainMenu();
 void displayLogin();
 int validate(string username, string password);
