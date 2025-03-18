@@ -10,65 +10,59 @@ class Teacher;
 class Student;
 
 class Assignment {
-
 public:
     Assignment();
+    Assignment(int courseID, int day, int month, int maxPoints, string description, string assignmentName);
 private:
-    //next assignment in linked list
-    Assignment* next;
-
-    //previous asssingment in linked list
-    Assignment* prev;
-
     //assignment details
+    
     int courseID;
     int month;
     int day;
-    int fullPoints;
+    int maxPoints;
     string description;
+    string assignmentName;
+    int assignmentID;
 };
 
-//doubly linked list
-class AssnList {
-    Assignment *head;
-    Assignment *tail;
-};
 
 //node for a singly linked list
 struct Grade {
-    Grade* next;
     Assignment* homework;
     int score;
 };
 
 class Course {
+public:
+    Course(int id, const string &course_name)
+        : ID(id),courseName(course_name){}
 
 private:
-    //linked list of assignments
-    AssnList homework;
-
+    Course(int courseID, string courseName);
+private:
     //array of pointers to each student
-    Student* studentList[50];
-
+    vector<Student> studentList;
+    vector<Assignment> assignmentList;
     //pointer to the course teacher
     Teacher* courseTeacher;
-
 public:
     //course id
     int ID;
-
-
+    string courseName;
 };
+
+
 
 //base class from which teachers and students inherit from
 class User {
     
-private:
+protected:
     string username;
     string password;
 
     //array of pointers to each course //max 18 courses
-    Course* courseList[18];
+    vector<Course> courseList;
+    vector<Assignment*> assignmentList;
 
 public:
     User();
@@ -84,6 +78,9 @@ public:
         return password;
     }
 
+    // vector<Assignment>* getAssignmentList(){
+    //     return &assignmentList;
+    // }
 };
 
 //derived class from user
@@ -95,7 +92,8 @@ public:
     void gradeAssignment(int assignmentID);
     int addStudent(int courseID);
     int removeStudent(int courseID);
-
+    void createAssignment(int courseID, int day, int month, int maxPoints, string description, string assignmentName);
+    void createCourse();
 };
 
 //derived class from user
@@ -104,8 +102,7 @@ class Student : public User {
 protected:
     // An array of linked lists for the grades
         // Each element corresponds to a linked list for a course
-    Grade* list[18];
-
+    vector<Grade> gradeList;
 public:
 
     void displayGPA();
