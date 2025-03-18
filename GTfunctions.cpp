@@ -1,5 +1,39 @@
 #include "GTheader.hpp"
 
+
+/*Constructor for assginments with 6 variables
+@param courseID ID for course assignment is listed under
+@param day day of due date
+@param month month of due date
+@param maxPoints maximum number of points for assignment
+@param description description of assignment
+@param assignmentName Name of the assignment
+*/
+Assignment::Assignment(int courseID, int day, int month, int maxPoints, string description, string assignmentName){
+    this->courseID = courseID;
+    this->day = day;
+    this->month = month;
+    this->maxPoints = maxPoints;
+    this->description = description;
+    this->assignmentName = assignmentName;
+    this->assignmentID = NULL;
+}
+
+/*Function adds assignment at the end of assignment vector
+@param courseID ID for course assignment is listed under
+@param day day of due date
+@param month month of due date
+@param maxPoints maximum number of points for assignment
+@param description description of assignment
+@param assignmentName Name of the assignment
+*/
+void Teacher::createAssignment(int courseID, int day, int month, int maxPoints, string description, string assignmentName){
+    //vector<Assignment>* assignmentList = this->getAssignmentList();
+    this->assignmentList.push_back(new Assignment(courseID, day, month, maxPoints, description, assignmentName));
+    cout << "Assignment created!";
+    return;
+}
+
 void printMainMenu()
 {
   cout<<"1. Pick course"<<endl;

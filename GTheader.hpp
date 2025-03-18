@@ -13,13 +13,17 @@ class Student;
 class Assignment {
 public:
     Assignment();
+    Assignment(int courseID, int day, int month, int maxPoints, string description, string assignmentName);
 private:
     //assignment details
+    
     int courseID;
     int month;
     int day;
-    int fullPoints;
+    int maxPoints;
     string description;
+    string assignmentName;
+    int assignmentID;
 };
 
 
@@ -30,13 +34,18 @@ struct Grade {
 };
 
 class Course {
-public:
-    Course(const string &course_name, int id)
-        : courseName(course_name), ID(id){}
+  
+private:
     string courseName;
     int ID;
-private:
+  
+public:
+
+    Course(int id, const string &course_name)
+        : ID(id),courseName(course_name){}
+  
     //array of pointers to each student
+    vector<Student> studentList;
     //vector<Student> studentList;
     vector<Assignment> assignmentList;
     //pointer to the course teacher
@@ -49,10 +58,12 @@ private:
 //base class from which teachers and students inherit from
 class User {
     
-private:
+protected:
     string username;
     string password;
+    //array of pointers to each course //max 18 courses
     vector<Course> courseList;
+    vector<Assignment*> assignmentList;
 
 public:
     User();
@@ -68,6 +79,9 @@ public:
         return password;
     }
 
+    // vector<Assignment>* getAssignmentList(){
+    //     return &assignmentList;
+    // }
 };
 
 //derived class from user
@@ -79,7 +93,8 @@ public:
     void gradeAssignment(int assignmentID);
     int addStudent(int courseID);
     int removeStudent(int courseID);
-
+    void createAssignment(int courseID, int day, int month, int maxPoints, string description, string assignmentName);
+    void createCourse();
 };
 
 //derived class from user
