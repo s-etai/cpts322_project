@@ -27,7 +27,12 @@ struct Grade {
 };
 
 class Course {
+public:
+    Course(int id, const string &course_name)
+        : ID(id),courseName(course_name){}
 
+private:
+    Course(int courseID, string courseName);
 private:
     //array of pointers to each student
     vector<Student> studentList;
@@ -37,7 +42,10 @@ private:
 public:
     //course id
     int ID;
+    string courseName;
 };
+
+
 
 //base class from which teachers and students inherit from
 class User {
