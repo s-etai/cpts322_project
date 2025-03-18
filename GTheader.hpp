@@ -1,6 +1,8 @@
 #include <iostream>
 #include <chrono>
+#include <fstream>
 #include <vector>
+
 using namespace std;
 
 
@@ -28,27 +30,43 @@ struct Grade {
 };
 
 class Course {
-
+public:
+    Course(const string &course_name, int id)
+        : courseName(course_name), ID(id){}
+    string courseName;
+    int ID;
 private:
     //array of pointers to each student
     //vector<Student> studentList;
     vector<Assignment> assignmentList;
     //pointer to the course teacher
     Teacher* courseTeacher;
-public:
-    //course id
-    int ID;
+
 };
+
+
 
 //base class from which teachers and students inherit from
 class User {
     
 private:
-    int username;
-    int password;
-
-    //array of pointers to each course //max 18 courses
+    string username;
+    string password;
     vector<Course> courseList;
+
+public:
+    User();
+    User(string new_username, string new_password){
+        username = new_username;
+        password = new_password;
+    }
+
+    string getUsername(){
+        return username;
+    }
+    string getPassword(){
+        return password;
+    }
 
 };
 
@@ -79,5 +97,4 @@ public:
 };
 
 void printMainMenu();
-void displayLogin();
-int validate(string username, string password);
+void login();

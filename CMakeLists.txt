@@ -4,4 +4,4 @@ project(Cpts322)
 set(CMAKE_CXX_STANDARD 20)
 
 add_executable(Cpts322 GTmain.cpp
-        GTfunctions.cpp)
+        GTfunctions.cpp GTheader.hpp)
