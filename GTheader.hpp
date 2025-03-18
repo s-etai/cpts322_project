@@ -22,7 +22,6 @@ private:
 
 //node for a singly linked list
 struct Grade {
-    Grade* next;
     Assignment* homework;
     int score;
 };
@@ -32,6 +31,7 @@ class Course {
 private:
     //array of pointers to each student
     vector<Student> studentList;
+    vector<Assignment> assignmentList;
     //pointer to the course teacher
     Teacher* courseTeacher;
 public:
