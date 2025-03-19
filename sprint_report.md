@@ -45,15 +45,15 @@ sprint, for quality:
 * [GTmain.cpp](https://github.com/your_repo/file_extension)
 
 ## Retrospective Summary
-Here's what went well:
+## Here's what went well:
 * Our collaboration went amazing
 * Smooth coding process
 * Work was distributed evenly
-Here's what we'd like to improve:
+## Here's what we'd like to improve:
 * Data structure organization
 * Handling data files
 * Our team planning
 * Use of Git branches and commits
-Here are changes we plan to implement in the next sprint:
+## Here are changes we plan to implement in the next sprint:
 * Create course functionality
 * Grades for assignments
