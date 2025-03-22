@@ -1,61 +1,25 @@
 #include "GTheader.hpp"
 
-void initCourses(vector<Course> &courses)
-{
-	Course Calc1("Calculus 1", 171);
-	Course Calc2("Calculus 2", 172);
-	Course Calc3("Calculus 3", 273);
-	Course DiffEq("Differential Equations", 315);
-	Course Linear("Linear Algebra", 220);
-	Course Cpts322("Software Engineering l", 322);
-	courses.push_back(Calc1);
-	courses.push_back(Calc2);
-	courses.push_back(Calc3);
-	courses.push_back(DiffEq);
-	courses.push_back(Linear);
-	courses.push_back(Cpts322);
-}
-
-void viewCourses(vector<Course> &courses)
-{
-	for (const auto &course : courses) {
-		cout << "Course Name: " << course.courseName << ", Course ID: " << course.ID << endl;
-	}
-}
-
-    int menuSelection = -1;
-
-    do
-    {
-        printMainMenu();
-        do
-        {
-            cin>>menuSelection;
-        } while (menuSelection < 0 || menuSelection > 5);
-
-        switch (menuSelection)
-        {
-            case 1:
-                cout << "not implemented yet, (print list of courses)\n";
-                break;
-            case 2:
-                cout << "not implemented yet, (Add course)\n";
-                break;
-            case 3:
-                cout << "not implemented yet, (display calender)\n";
-                break;
-            case 4:
-                cout << "not implemented yet, (show notifications)\n";
-                break;
-        }
-
-
-    } while (menuSelection != 5);
 
 
 int main(){
+	cout << "TESTING VIEW COURSES:" << endl << endl;
 	vector<Course> courses;
 	initCourses(courses);
 	viewCourses(courses);
+
+	cout << endl << endl <<
+	"TESTING MENU:" << endl << endl;
+	menu();
+
+	cout << "TESTING LOGIN:" << endl << endl;
+	login();
+
+	cout << "TESTING ASSIGNMENT CREATION" << endl << endl;
+
+	Teacher *teachtest = new Teacher();
+
+	teachtest->createAssignment(1234, 17, 3, 10, "Test Assignment to test the create assignment function", "Test Assignment");
+
 
 }
