@@ -52,9 +52,8 @@ public:
     }
     
     //array of pointers to each student
-    vector<Student> studentList;
     //vector<Student> studentList;
-    vector<Assignment> assignmentList;
+    //vector<Assignment> assignmentList;
     //pointer to the course teacher
     Teacher* courseTeacher;
 
