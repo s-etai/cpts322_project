@@ -1,25 +1,11 @@
-#include "GTheader.hpp"
+#include "Wrapper.h"
 
 
+using namespace std;
 
-int main(){
-	cout << "TESTING VIEW COURSES:" << endl << endl;
-	vector<Course> courses;
-	initCourses(courses);
-	viewCourses(courses);
-
-	cout << endl << endl <<
-	"TESTING MENU:" << endl << endl;
+int main() {
 	menu();
-
-	cout << "TESTING LOGIN:" << endl << endl;
-	login();
-
-	cout << "TESTING ASSIGNMENT CREATION" << endl << endl;
-
-	Teacher *teachtest = new Teacher();
-
-	teachtest->createAssignment(1234, 17, 3, 10, "Test Assignment to test the create assignment function", "Test Assignment");
-
-
+	Wrapper exe;
+	//exe.run();
+	return 0;
 }

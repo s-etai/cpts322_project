@@ -222,6 +222,18 @@ Cpts322_IS_TOP_LEVEL:STATIC=ON
 //Value Computed by CMake
 Cpts322_SOURCE_DIR:STATIC=/Users/jacedunn/CLionProjects/Cpts322
 
+//The directory containing a CMake configuration file for Qt5Core.
+Qt5Core_DIR:PATH=/opt/anaconda3/lib/cmake/Qt5Core
+
+//The directory containing a CMake configuration file for Qt5Gui.
+Qt5Gui_DIR:PATH=/opt/anaconda3/lib/cmake/Qt5Gui
+
+//The directory containing a CMake configuration file for Qt5Widgets.
+Qt5Widgets_DIR:PATH=/opt/anaconda3/lib/cmake/Qt5Widgets
+
+//No help, variable specified on the command line.
+Qt5_DIR:UNINITIALIZED=/usr/local/opt/qt/lib/cmake/Qt5
+
 
 ########################
 # INTERNAL cache entries

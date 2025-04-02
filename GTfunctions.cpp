@@ -39,12 +39,12 @@ void printMainMenu()
   cout<<"1. Pick course"<<endl;
   cout<<"2. Add course"<<endl;
   cout<<"3. View calender"<<endl;
-  cout<<"4. Nodification"<<endl;
+  cout<<"4. Notification"<<endl;
   cout<<"5. Exit"<<endl;
 }
 
 
-void login(){
+bool login(){
 
     system("clear");
 
@@ -128,39 +128,37 @@ void login(){
     users.close();
 
     cout << "Login Successful" << endl;
-    return;
+    return true;
 }
 
 
 void menu(){
     int menuSelection = -1;
 
-    do
-	{
+    while (menuSelection != 5)
+    {
         printMainMenu();
-        do
-        {
-            cin>>menuSelection;
-        } while (menuSelection < 0 || menuSelection > 5);
+        cin >> menuSelection;
 
-        switch (menuSelection)
-        {
+        switch (menuSelection) {
             case 1:
                 cout << "not implemented yet, (print list of courses)\n";
-                break;
+            break;
             case 2:
                 cout << "not implemented yet, (Add course)\n";
-                break;
+            break;
             case 3:
-                cout << "not implemented yet, (display calender)\n";
-                break;
+                cout << "not implemented yet, (display calendar)\n";
+            break;
             case 4:
                 cout << "not implemented yet, (show notifications)\n";
-                break;
+            break;
+            default:
+                cout << "Invalid Selection" << endl;
         }
+    }
 
-    } while (menuSelection != 5);
-	cout << endl;
+    cout << endl;
 }
 
 void initCourses(vector<Course> &courses)

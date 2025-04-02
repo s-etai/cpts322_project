@@ -34,11 +34,6 @@ struct Grade {
 };
 
 class Course {
-  
-private:
-    string courseName;
-    int ID;
-  
 public:
 
     Course(string course_name, int id)
@@ -56,7 +51,9 @@ public:
     //vector<Assignment> assignmentList;
     //pointer to the course teacher
     Teacher* courseTeacher;
-
+private:
+    string courseName;
+    int ID;
 };
 
 
@@ -121,7 +118,7 @@ public:
 };
 
 void printMainMenu();
-void login();
+bool login();
 void menu();
 void initCourses(vector<Course> &courses);
 void viewCourses(vector<Course> &courses);
