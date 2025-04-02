@@ -1,3 +1,5 @@
+using System;         
+using System.Collections.Generic; 
 public class Course
 {
     public string CourseName { get; set; }
