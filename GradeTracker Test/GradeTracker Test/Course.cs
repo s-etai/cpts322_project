@@ -10,15 +10,19 @@ namespace GradeTracker_Test
     {
         public string CourseName { get; set; }
 
-        public Course(string courseName, List<Student> students)
+        // not sure if this should be private
+        public List<Student> Students = new List<Student>();
+
+        public List<Assignment> Assignments = new List<Assignment>();
+
+
+        public Course(string courseName, List<Student> students, List<Assignment> assignments)
         {
             CourseName = courseName;
             Students = students;
+            Assignments = assignments;
         }
 
 
-
-        // not sure if this should be private
-        public List<Student> Students = new List<Student>();
     }
 }

@@ -14,7 +14,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("GradeTracker Test")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+70cd6979c9ae7f1c096c6c10fd0604cb68c6c897")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+457a68864e32d8348d1aadc28059dd983a86515f")]
 [assembly: System.Reflection.AssemblyProductAttribute("GradeTracker Test")]
 [assembly: System.Reflection.AssemblyTitleAttribute("GradeTracker Test")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

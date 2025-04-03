@@ -31,8 +31,17 @@ namespace GradeTracker_Test
             List<Student> testStudents = new List<Student>();
             testStudents.Add((Student)userList["jace"]);
             testStudents.Add((Student)userList["stockton"]);
-            Course test1 = new Course("math", testStudents);
-            Course test2 = new Course("art", testStudents);
+
+            //test assignments
+            Assignment check1 = new Assignment("GradeTracker", 100);
+            Assignment check2 = new Assignment("Sprint2", 50);
+            
+
+            List<Assignment> testAssignments = new List<Assignment>();
+            testAssignments.Add((Assignment)check1);
+            testAssignments.Add((Assignment)check2);
+            Course test1 = new Course("math", testStudents, testAssignments);
+            Course test2 = new Course("art", testStudents, testAssignments);
 
 
             userList["elliott"].Courses["math"] = test1;
@@ -108,8 +117,8 @@ namespace GradeTracker_Test
             StudentListBox.Items.Clear();
             StudentListBox.Items.AddRange(currentCourse.Students.Select(student => student.Username).ToArray());
 
-            //AssignmentList.Items.Clear();
-            //AssignmentList.Items.AddRange(currentCourse.Assignments.Select(assignment => assignment.Title).ToArray());
+            AssignmentList.Items.Clear();
+            AssignmentList.Items.AddRange(currentCourse.Assignments.Select(assignment => assignment.Title).ToArray());
         }
 
         private void AssignmentList_SelectedIndexChanged(object sender, EventArgs e)
