@@ -30,3 +30,20 @@ C:\Users\ellio\source\GradeTracker\cpts322_project\GradeTracker Test\GradeTracke
 C:\Users\ellio\source\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\GradeTracker Test.pdb
 C:\Users\ellio\source\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\GradeTracker Test.genruntimeconfig.cache
 C:\Users\ellio\source\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\ref\GradeTracker Test.dll
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\bin\Debug\net7.0-windows\GradeTracker Test.exe
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\bin\Debug\net7.0-windows\GradeTracker Test.deps.json
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\bin\Debug\net7.0-windows\GradeTracker Test.runtimeconfig.json
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\bin\Debug\net7.0-windows\GradeTracker Test.dll
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\bin\Debug\net7.0-windows\GradeTracker Test.pdb
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\GradeTracker_Test.Form1.resources
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\GradeTracker Test.csproj.GenerateResource.cache
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\GradeTracker Test.GeneratedMSBuildEditorConfig.editorconfig
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\GradeTracker Test.AssemblyInfoInputs.cache
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\GradeTracker Test.AssemblyInfo.cs
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\GradeTracker Test.csproj.CoreCompileInputs.cache
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\GradeTracker Test.sourcelink.json
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\GradeTracker Test.dll
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\refint\GradeTracker Test.dll
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\GradeTracker Test.pdb
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\GradeTracker Test.genruntimeconfig.cache
+\\wsl.localhost\Ubuntu\home\elilawrence\CPTS_322\GradeTracker\cpts322_project\GradeTracker Test\GradeTracker Test\obj\Debug\net7.0-windows\ref\GradeTracker Test.dll

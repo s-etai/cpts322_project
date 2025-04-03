@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "WW4gvCE78N/lbrOqaL5BVwuxZ7Hwr2laAqHgGrj29V9USyagL/42lkilddF02fzWo4b4u1CGqv1lAtxzHuUBSw==",
+  "dgSpecHash": "bnUdOEnRrfM=",
   "success": true,
-  "projectFilePath": "C:\\Users\\ellio\\source\\GradeTracker\\cpts322_project\\GradeTracker Test\\GradeTracker Test\\GradeTracker Test.csproj",
+  "projectFilePath": "\\\\wsl.localhost\\Ubuntu\\home\\elilawrence\\CPTS_322\\GradeTracker\\cpts322_project\\GradeTracker Test\\GradeTracker Test\\GradeTracker Test.csproj",
   "expectedPackageFiles": [],
   "logs": []
 }
