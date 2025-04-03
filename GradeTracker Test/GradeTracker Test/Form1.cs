@@ -107,6 +107,19 @@ namespace GradeTracker_Test
 
             StudentListBox.Items.Clear();
             StudentListBox.Items.AddRange(currentCourse.Students.Select(student => student.Username).ToArray());
+
+            //AssignmentList.Items.Clear();
+            //AssignmentList.Items.AddRange(currentCourse.Assignments.Select(assignment => assignment.Title).ToArray());
+        }
+
+        private void AssignmentList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //Assignment.Visible = false;
+            //AssignmentList.Visible = true;
+            //CourseNameLabel.Text = currentCourse.CourseName;
+
+            //StudentListBox.Items.Clear();
+            //StudentListBox.Items.AddRange(currentCourse.Students.Select(student => student.Username).ToArray());
         }
     }
 }
