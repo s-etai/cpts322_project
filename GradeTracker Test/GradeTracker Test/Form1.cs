@@ -8,17 +8,15 @@ namespace GradeTracker_Test
         Dictionary<string, User> userList = new Dictionary<string, User>();
         User currentUser;
         Course currentCourse;
+        Wrapper program;
 
         public Form1()
         {
 
             init_panels();
-            
+
             ///test teachers
-            userList["eli"] = new Teacher("eli", "123");
-            userList["elliott"] = (new Teacher("elliott", "456"));
-            userList["jace"] = new Student("jace", "123");
-            userList["stockton"] = new Student("stockton", "123");
+            program.initTeachers();
 
             List<Student> testStudents = new List<Student>();
             testStudents.Add((Student)userList["jace"]);
