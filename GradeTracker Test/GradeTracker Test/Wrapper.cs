@@ -2,7 +2,7 @@ using GradeTracker_Test;
 
 public class Wrapper
 {
-    public static void initTeachers(Dictionary<string, User> userList)
+    public void initTeachers(Dictionary<string, User> userList)
     {
         userList["eli"] = new Teacher("eli", "123");
         userList["elliott"] = (new Teacher("elliott", "456"));
