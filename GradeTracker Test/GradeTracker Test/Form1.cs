@@ -11,17 +11,9 @@ namespace GradeTracker_Test
 
         public Form1()
         {
-            // Initialze ui panels
-            InitializeComponent();
-            this.Controls.Add(this.Login);
-            Login.Visible = true;
-            this.Controls.Add(this.Menu);
-            Menu.Visible = false;
-            this.Controls.Add(this.courseList);
-            courseList.Visible = false;
-            this.Controls.Add(this.CourseDisplay);
-            CourseDisplay.Visible = false;
 
+            init_panels();
+            
             ///test teachers
             userList["eli"] = new Teacher("eli", "123");
             userList["elliott"] = (new Teacher("elliott", "456"));
@@ -92,6 +84,20 @@ namespace GradeTracker_Test
                 LoginError.Text = "No username exists";
             }
 
+        }
+
+        private void init_panels()
+        {
+            // Initialze ui panels
+            InitializeComponent();
+            this.Controls.Add(this.Login);
+            Login.Visible = true;
+            this.Controls.Add(this.Menu);
+            Menu.Visible = false;
+            this.Controls.Add(this.courseList);
+            courseList.Visible = false;
+            this.Controls.Add(this.CourseDisplay);
+            CourseDisplay.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
