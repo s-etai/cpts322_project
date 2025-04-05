@@ -134,5 +134,23 @@ namespace GradeTracker_Test
             //StudentListBox.Items.Clear();
             //StudentListBox.Items.AddRange(currentCourse.Students.Select(student => student.Username).ToArray());
         }
+
+        private void TeacherCourseDetailsBackButton_Click(object sender, EventArgs e)
+        {
+            CourseDisplay.Visible = false;
+            courseList.Visible = true;
+        }
+
+        private void CourseListBackButton_Click(object sender, EventArgs e)
+        {
+            courseList.Visible = false;
+            Menu.Visible = true;
+        }
+
+        private void MenuBackButton_Click(object sender, EventArgs e)
+        {
+            Menu.Visible = false;
+            Login.Visible = true;
+        }
     }
 }
