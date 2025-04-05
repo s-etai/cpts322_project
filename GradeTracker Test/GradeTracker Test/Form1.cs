@@ -96,6 +96,8 @@ namespace GradeTracker_Test
             courseList.Visible = false;
             this.Controls.Add(this.CourseDisplay);
             CourseDisplay.Visible = false;
+            this.Controls.Add(this.StudentCourseDisplay);
+            this.StudentCourseDisplay.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -119,19 +121,40 @@ namespace GradeTracker_Test
             // Set current course to the course selected with the course dictionary in the user object.
             currentCourse = currentUser.Courses[CourselistBox.SelectedItem.ToString()];
 
-            //following is for teacher. 
-            // Switch panels.
-            courseList.Visible = false;
-            CourseDisplay.Visible = true;
-            CourseNameLabel.Text = currentCourse.CourseName;
+            // Differnt page shown depending on user type.
+            // Probably should use polymorphism somehow.
+            if (currentUser.GetType().Name == "Teacher")
+            {
+                //following is for teacher. 
+                // Switch panels.
+                courseList.Visible = false;
+                CourseDisplay.Visible = true;
+                CourseNameLabel.Text = currentCourse.CourseName;
 
-            // Populate list box of students in course.
-            StudentListBox.Items.Clear();
-            StudentListBox.Items.AddRange(currentCourse.Students.Select(student => student.Username).ToArray());
+                // Populate list box of students in course.
+                StudentListBox.Items.Clear();
+                StudentListBox.Items.AddRange(currentCourse.Students.Select(student => student.Username).ToArray());
 
-            // Populate list box of assingments in course.
-            AssignmentList.Items.Clear();
-            AssignmentList.Items.AddRange(currentCourse.Assignments.Select(assignment => assignment.Title).ToArray());
+                // Populate list box of assingments in course.
+                AssignmentList.Items.Clear();
+                AssignmentList.Items.AddRange(currentCourse.Assignments.Select(assignment => assignment.Title).ToArray());
+            }
+            else
+            {
+                // If the user is a student.
+                // switch panels.
+                courseList.Visible = false;
+                StudentCourseDisplay.Visible = true;
+
+                // Display course name.
+                CourseNameLableStudent.Text = currentCourse.CourseName;
+
+                // Populate List box.
+                AssignmentListBoxStudent.Items.Clear();
+                AssignmentListBoxStudent.Items.AddRange(currentCourse.Assignments.Select(assignment => assignment.Title).ToArray());
+            }
+
+
         }
 
         private void AssignmentList_SelectedIndexChanged(object sender, EventArgs e)
@@ -160,6 +183,12 @@ namespace GradeTracker_Test
         {
             Menu.Visible = false;
             Login.Visible = true;
+        }
+
+        private void StudentCourseDisplayBackButton_Click(object sender, EventArgs e)
+        {
+            StudentCourseDisplay.Visible = false;
+            courseList.Visible = true;
         }
     }
 }

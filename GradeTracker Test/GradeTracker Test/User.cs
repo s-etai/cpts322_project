@@ -18,5 +18,6 @@ namespace GradeTracker_Test
             Username = username;
             Password = password;
         }
+        
     }
 }
