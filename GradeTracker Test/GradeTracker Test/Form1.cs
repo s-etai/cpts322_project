@@ -35,7 +35,7 @@ namespace GradeTracker_Test
             //test assignments
             Assignment check1 = new Assignment("GradeTracker", 100);
             Assignment check2 = new Assignment("Sprint2", 50);
-            
+
 
             List<Assignment> testAssignments = new List<Assignment>();
             testAssignments.Add((Assignment)check1);

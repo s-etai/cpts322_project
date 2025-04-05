@@ -1,24 +1,20 @@
 {
   "format": 1,
   "restore": {
-    "\\\\wsl.localhost\\Ubuntu\\home\\elilawrence\\CPTS_322\\GradeTracker\\cpts322_project\\GradeTracker Test\\GradeTracker Test\\GradeTracker Test.csproj": {}
+    "C:\\Users\\ellio\\source\\GradeTracker\\cpts322_project\\GradeTracker Test\\GradeTracker Test\\GradeTracker Test.csproj": {}
   },
   "projects": {
-    "\\\\wsl.localhost\\Ubuntu\\home\\elilawrence\\CPTS_322\\GradeTracker\\cpts322_project\\GradeTracker Test\\GradeTracker Test\\GradeTracker Test.csproj": {
+    "C:\\Users\\ellio\\source\\GradeTracker\\cpts322_project\\GradeTracker Test\\GradeTracker Test\\GradeTracker Test.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "\\\\wsl.localhost\\Ubuntu\\home\\elilawrence\\CPTS_322\\GradeTracker\\cpts322_project\\GradeTracker Test\\GradeTracker Test\\GradeTracker Test.csproj",
+        "projectUniqueName": "C:\\Users\\ellio\\source\\GradeTracker\\cpts322_project\\GradeTracker Test\\GradeTracker Test\\GradeTracker Test.csproj",
         "projectName": "GradeTracker Test",
-        "projectPath": "\\\\wsl.localhost\\Ubuntu\\home\\elilawrence\\CPTS_322\\GradeTracker\\cpts322_project\\GradeTracker Test\\GradeTracker Test\\GradeTracker Test.csproj",
-        "packagesPath": "C:\\Users\\eli.lawrence\\.nuget\\packages\\",
-        "outputPath": "\\\\wsl.localhost\\Ubuntu\\home\\elilawrence\\CPTS_322\\GradeTracker\\cpts322_project\\GradeTracker Test\\GradeTracker Test\\obj\\",
+        "projectPath": "C:\\Users\\ellio\\source\\GradeTracker\\cpts322_project\\GradeTracker Test\\GradeTracker Test\\GradeTracker Test.csproj",
+        "packagesPath": "C:\\Users\\ellio\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\ellio\\source\\GradeTracker\\cpts322_project\\GradeTracker Test\\GradeTracker Test\\obj\\",
         "projectStyle": "PackageReference",
-        "fallbackFolders": [
-          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
-        ],
         "configFilePaths": [
-          "C:\\Users\\eli.lawrence\\AppData\\Roaming\\NuGet\\NuGet.Config",
-          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Users\\ellio\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -38,13 +34,7 @@
           "warnAsError": [
             "NU1605"
           ]
-        },
-        "restoreAuditProperties": {
-          "enableAudit": "true",
-          "auditLevel": "low",
-          "auditMode": "direct"
-        },
-        "SdkAnalysisLevel": "9.0.200"
+        }
       },
       "frameworks": {
         "net7.0-windows7.0": {
@@ -68,7 +58,7 @@
               "privateAssets": "none"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.201\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\7.0.400\\RuntimeIdentifierGraph.json"
         }
       }
     }
