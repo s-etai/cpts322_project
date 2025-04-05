@@ -9,12 +9,18 @@ namespace GradeTracker_Test
     internal class Student : User
     {
 
-        Dictionary<Course, List<int>> GradeSheet = new Dictionary<Course, List<int>>();
-        public List<List<int>> Grades;
+        Dictionary<Assignment, Assignment> studentAssignments = new Dictionary<Assignment, Assignment>();
+        
         public Student (string username, string password)
             : base (username, password)
         {
 
+        }
+
+        public void addAssignment(Assignment courseAssignment)
+        {
+            Assignment studentAssignment = new Assignment(courseAssignment.Title, courseAssignment.FullPoints);
+            studentAssignments[courseAssignment] = studentAssignment;
         }
     }
 }

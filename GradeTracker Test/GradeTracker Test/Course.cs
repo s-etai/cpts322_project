@@ -19,11 +19,16 @@ namespace GradeTracker_Test
         public Course(string courseName, List<Student> students, List<Assignment> assignments)
         {
             CourseName = courseName;
-            Assignments = assignments;
+            //Assignments = assignments;
 
             foreach (var student in students)
             {
                 this.addStudent(student);
+            }
+
+            foreach (var assignment in assignments)
+            {
+                this.addAssignment(assignment);
             }
         }
 
@@ -38,6 +43,15 @@ namespace GradeTracker_Test
             student.Courses.Add(this.CourseName, this);
         }
 
+        public void addAssignment (Assignment assignment)
+        {
+            Assignments.Add(assignment);
+
+            foreach (var student in Students)
+            {
+                student.addAssignment(assignment);
+            }
+        }
 
     }
 }

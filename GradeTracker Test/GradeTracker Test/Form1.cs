@@ -8,6 +8,7 @@ namespace GradeTracker_Test
         Dictionary<string, User> userList = new Dictionary<string, User>();
         User currentUser;
         Course currentCourse;
+        User studentForGrading;
         Wrapper program = new Wrapper();
 
         public Form1()
@@ -97,7 +98,11 @@ namespace GradeTracker_Test
             this.Controls.Add(this.CourseDisplay);
             CourseDisplay.Visible = false;
             this.Controls.Add(this.StudentCourseDisplay);
-            this.StudentCourseDisplay.Visible = false;
+            StudentCourseDisplay.Visible = false;
+            this.Controls.Add(this.TeacherViewOfStudent);
+            TeacherViewOfStudent.Visible = false;
+            this.Controls.Add(this.TeacherAssignmentEditor);
+            TeacherAssignmentEditor.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -189,6 +194,42 @@ namespace GradeTracker_Test
         {
             StudentCourseDisplay.Visible = false;
             courseList.Visible = true;
+        }
+
+        private void StudentListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            studentForGrading = userList[StudentListBox.SelectedItem.ToString()];
+
+            //Switch panel
+            CourseDisplay.Visible = false;
+            TeacherViewOfStudent.Visible = true;
+
+            StudentNameLabel.Text = studentForGrading.Username;
+
+            TeacherViewStudentAssignmentsList.Items.Clear();
+            TeacherViewStudentAssignmentsList.Items.AddRange(currentCourse.Assignments.Select(assignment => assignment.Title).ToArray());
+
+        }
+
+        private void StudentNameLabel_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void TeacherViewOfStudentBackButton_Click(object sender, EventArgs e)
+        {
+            TeacherViewOfStudent.Visible = false;
+            CourseDisplay.Visible = true;
+        }
+
+        private void TeacherViewStudentAssignmentsList_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //swithch panel
+            TeacherViewOfStudent.Visible = false;
+            TeacherAssignmentEditor.Visible = true;
+
+            TeacherAssignmentEditorStudentName.Text = studentForGrading.Username;
+
         }
     }
 }

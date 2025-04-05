@@ -11,10 +11,15 @@ namespace GradeTracker_Test
         public string Title { get; set; }
         public int FullPoints { get; set; }
 
+        public int pointsScored { get; set; }
+
+        public List<String> comments;
+
         public Assignment(string title, int fullPoints)
         {
             Title = title;
             FullPoints = fullPoints;
+            pointsScored = 0;
         }
 
     }
