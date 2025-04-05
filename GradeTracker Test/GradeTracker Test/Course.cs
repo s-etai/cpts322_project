@@ -19,8 +19,23 @@ namespace GradeTracker_Test
         public Course(string courseName, List<Student> students, List<Assignment> assignments)
         {
             CourseName = courseName;
-            Students = students;
             Assignments = assignments;
+
+            foreach (var student in students)
+            {
+                this.addStudent(student);
+            }
+        }
+
+        /// <summary>
+        /// When a student is added to this course, add them to the list of students,
+        /// and add this course to the student's course dictionary. 
+        /// </summary>
+        /// <param name="student"></param>
+        public void addStudent (Student student)
+        {
+            Students.Add(student);
+            student.Courses.Add(this.CourseName, this);
         }
 
 
