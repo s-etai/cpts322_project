@@ -8,7 +8,7 @@ namespace GradeTracker_Test
         Dictionary<string, User> userList = new Dictionary<string, User>();
         User currentUser;
         Course currentCourse;
-        Wrapper program;
+        Wrapper program = new Wrapper();
 
         public Form1()
         {

@@ -1,6 +1,6 @@
 using GradeTracker_Test;
 
-public class Wrapper
+internal class Wrapper
 {
     public void initTeachers(Dictionary<string, User> userList)
     {
