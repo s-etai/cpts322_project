@@ -11,7 +11,7 @@ namespace GradeTracker_Test
         public Student (string username, string password)
             : base (username, password)
         {
-
+            
         }
     }
 }
