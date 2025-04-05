@@ -16,7 +16,7 @@ namespace GradeTracker_Test
             init_panels();
 
             ///test teachers
-            program.initTeachers();
+            program.initTeachers(userList);
 
             List<Student> testStudents = new List<Student>();
             testStudents.Add((Student)userList["jace"]);
