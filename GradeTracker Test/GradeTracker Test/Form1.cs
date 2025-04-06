@@ -8,8 +8,8 @@ namespace GradeTracker_Test
         Dictionary<string, User> userList = new Dictionary<string, User>();
         User currentUser;
         Course currentCourse;
-        User studentForGrading;
-        Assignment studentAssignmentRef;
+        User studentForGrading; // The student that the teacher is changing the assignments of.
+        Assignment studentAssignmentRef; // The assingment in student that holds there grade for the assingment.
         Wrapper program = new Wrapper();
 
         public Form1()
@@ -44,7 +44,11 @@ namespace GradeTracker_Test
         }
 
 
-
+        /// <summary>
+        /// Switch from menu to course list when course button is clicked.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void courses_Click(object sender, EventArgs e)
         {
             Menu.Visible = false;
@@ -252,10 +256,12 @@ namespace GradeTracker_Test
 
         private void TeacherAssignmentEditorSave_Click(object sender, EventArgs e)
         {
-            // save
-            //should try parse.
-            studentAssignmentRef.pointsScored = int.Parse(TeacherAssignmentEditorPointsScored.Text);
-            studentAssignmentRef.FullPoints = int.Parse(TeacherAssignmentEditorTotalPoints.Text);
+            // Change assignmet values if valid, if not leave them as they were.
+            if(double.TryParse(TeacherAssignmentEditorPointsScored.Text, out double pointsScored) && double.TryParse(TeacherAssignmentEditorTotalPoints.Text, out double totalPoints))
+            {
+                studentAssignmentRef.pointsScored = pointsScored;
+                studentAssignmentRef.FullPoints = totalPoints;
+            }
 
             //Back
             TeacherAssignmentEditor.Visible = false;

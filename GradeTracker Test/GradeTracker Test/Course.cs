@@ -44,6 +44,10 @@ namespace GradeTracker_Test
             student.Courses.Add(this.CourseName, this);
         }
 
+        /// <summary>
+        /// Add assignemt to course list and add and instace to each student.
+        /// </summary>
+        /// <param name="assignment"></param>
         public void addAssignment (Assignment assignment)
         {
             Assignments.Add(assignment);

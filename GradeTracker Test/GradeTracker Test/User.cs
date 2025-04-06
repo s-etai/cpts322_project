@@ -11,6 +11,9 @@ namespace GradeTracker_Test
         public string Username { get; set; }
         public string Password { get; set; }
 
+        //Course name as key, course as value.
+        //For teachers, the list of couses they have.
+        //For Students the list of couses they are in.
         public Dictionary<String, Course> Courses = new Dictionary<String, Course>();
 
         public User(string username, string password)
@@ -19,6 +22,11 @@ namespace GradeTracker_Test
             Password = password;
         }
 
+        /// <summary>
+        /// Needed for the student to return a ref to their assignment copy.
+        /// </summary>
+        /// <param name="assignment"></param>
+        /// <returns></returns>
         public virtual Assignment GetAssignment(Assignment assignment)
         {
             return assignment;

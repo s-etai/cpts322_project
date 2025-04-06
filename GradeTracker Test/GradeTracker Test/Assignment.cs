@@ -9,13 +9,13 @@ namespace GradeTracker_Test
     internal class Assignment
     {
         public string Title { get; set; }
-        public int FullPoints { get; set; }
+        public double FullPoints { get; set; }
 
-        public int pointsScored { get; set; }
+        public double pointsScored { get; set; }
 
         public List<String> comments;
 
-        public Assignment(string title, int fullPoints)
+        public Assignment(string title, double fullPoints)
         {
             Title = title;
             FullPoints = fullPoints;
