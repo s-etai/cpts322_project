@@ -112,6 +112,8 @@ namespace GradeTracker_Test
             TeacherViewOfStudent.Visible = false;
             this.Controls.Add(this.TeacherAssignmentEditor);
             TeacherAssignmentEditor.Visible = false;
+            this.Controls.Add(this.StudentAssingmentEditor);
+            StudentAssingmentEditor.Visible = false;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -250,7 +252,7 @@ namespace GradeTracker_Test
         {
             //temparary get student's assingment copy for editing.
             string courseTitle = TeacherViewStudentAssignmentsList.SelectedItem.ToString();
-            Assignment courseAssignmentRef = new Assignment("test", 10);
+            Assignment courseAssignmentRef = new Assignment("test", 10); // test 10 never used.
             //temp get course assignmet ref
             foreach (var assignment in currentCourse.Assignments)
             {
@@ -271,7 +273,7 @@ namespace GradeTracker_Test
 
             TeacherAssingmentEditorComments.Items.Clear();
             TeacherAssingmentEditorComments.Items.AddRange(studentAssignmentRef.comments.ToArray());
-            
+
 
             //swithch panel
             TeacherViewOfStudent.Visible = false;
@@ -300,9 +302,64 @@ namespace GradeTracker_Test
                 studentAssignmentRef.comments.Add(currentUser.Username + ": " + TeacherAssingmentEditorNewComment.Text);
             }
 
-                //Back
-                TeacherAssignmentEditor.Visible = false;
+            //Back
+            TeacherAssignmentEditor.Visible = false;
             TeacherViewOfStudent.Visible = true;
+        }
+
+        /// <summary>
+        /// When student selects a course, they view their grades and comments.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AssignmentListBoxStudent_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            //temparary get student's assingment copy for editing.
+            string courseTitle = AssignmentListBoxStudent.SelectedItem.ToString();
+            Assignment courseAssignmentRef = new Assignment("test", 10); // test 10 never used.
+            //temp get course assignmet ref
+            foreach (var assignment in currentCourse.Assignments)
+            {
+                if (assignment.Title == courseTitle)
+                {
+                    courseAssignmentRef = assignment;
+                }
+            }
+            studentAssignmentRef = currentUser.GetAssignment(courseAssignmentRef); //Current user is the student.
+
+            // Switch panel
+            StudentCourseDisplay.Visible = false;
+            StudentAssingmentEditor.Visible = true;
+
+            //Clear new comment input box.
+            StudentAssingmentEditorComment.Text = string.Empty;
+
+            //Display grade and comments
+            StudentAssingmentEditorPointsScored.Text = studentAssignmentRef.pointsScored.ToString();
+            StudentAssingmentEditorTotalPoints.Text = studentAssignmentRef.FullPoints.ToString();
+            StudentAssingmentEditorCourseName.Text = studentAssignmentRef.Title;
+
+            StudentAssingmentEditorComments.Items.Clear();
+            StudentAssingmentEditorComments.Items.AddRange(studentAssignmentRef.comments.ToArray());
+
+        }
+
+        /// <summary>
+        /// Save the student's comment and go back to course display.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void StudentAssingmentEditorBack_Click(object sender, EventArgs e)
+        {
+            // add the comment in the comment input box
+            if (StudentAssingmentEditorComment.Text != string.Empty)
+            {
+                studentAssignmentRef.comments.Add(currentUser.Username + ": " + StudentAssingmentEditorComment.Text);
+            }
+
+            // switch back to course display.
+            StudentAssingmentEditor.Visible = false;
+            StudentCourseDisplay.Visible = true;
         }
     }
 }
