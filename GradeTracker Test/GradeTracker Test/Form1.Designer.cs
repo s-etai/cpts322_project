@@ -422,6 +422,7 @@
             TeacherAssignmentEditorSave.TabIndex = 8;
             TeacherAssignmentEditorSave.Text = "Save and Back";
             TeacherAssignmentEditorSave.UseVisualStyleBackColor = true;
+            TeacherAssignmentEditorSave.Click += TeacherAssignmentEditorSave_Click;
             // 
             // textBox1
             // 

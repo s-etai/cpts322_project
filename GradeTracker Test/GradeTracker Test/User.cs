@@ -18,6 +18,11 @@ namespace GradeTracker_Test
             Username = username;
             Password = password;
         }
+
+        public virtual Assignment GetAssignment(Assignment assignment)
+        {
+            return assignment;
+        }
         
     }
 }

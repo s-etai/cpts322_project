@@ -9,7 +9,7 @@ namespace GradeTracker_Test
     internal class Student : User
     {
 
-        Dictionary<Assignment, Assignment> studentAssignments = new Dictionary<Assignment, Assignment>();
+        public Dictionary<Assignment, Assignment> studentAssignments = new Dictionary<Assignment, Assignment>();
         
         public Student (string username, string password)
             : base (username, password)
@@ -21,6 +21,11 @@ namespace GradeTracker_Test
         {
             Assignment studentAssignment = new Assignment(courseAssignment.Title, courseAssignment.FullPoints);
             studentAssignments[courseAssignment] = studentAssignment;
+        }
+
+        public override Assignment GetAssignment(Assignment courseAssignment)
+        {
+            return studentAssignments[courseAssignment];
         }
     }
 }

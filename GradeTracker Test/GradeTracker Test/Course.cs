@@ -13,6 +13,7 @@ namespace GradeTracker_Test
         // not sure if this should be private
         public List<Student> Students = new List<Student>();
 
+        // title assingment pair
         public List<Assignment> Assignments = new List<Assignment>();
 
 

@@ -9,6 +9,7 @@ namespace GradeTracker_Test
         User currentUser;
         Course currentCourse;
         User studentForGrading;
+        Assignment studentAssignmentRef;
         Wrapper program = new Wrapper();
 
         public Form1()
@@ -224,12 +225,41 @@ namespace GradeTracker_Test
 
         private void TeacherViewStudentAssignmentsList_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //temparary
+            string courseTitle = TeacherViewStudentAssignmentsList.SelectedItem.ToString();
+            Assignment courseAssignmentRef = new Assignment("test", 10);
+            //temp get course assignmet ref
+            foreach (var assignment in currentCourse.Assignments)
+            {
+                if (assignment.Title == courseTitle)
+                {
+                    courseAssignmentRef = assignment;
+                }
+            }
+            studentAssignmentRef = studentForGrading.GetAssignment(courseAssignmentRef);
+
+            TeacherAssignmentEditorPointsScored.Text = studentAssignmentRef.pointsScored.ToString();
+            TeacherAssignmentEditorTotalPoints.Text = studentAssignmentRef.FullPoints.ToString();
+            TeacherAssignmentEditorAssignmentName.Text = studentAssignmentRef.Title;
+
             //swithch panel
             TeacherViewOfStudent.Visible = false;
             TeacherAssignmentEditor.Visible = true;
 
             TeacherAssignmentEditorStudentName.Text = studentForGrading.Username;
 
+        }
+
+        private void TeacherAssignmentEditorSave_Click(object sender, EventArgs e)
+        {
+            // save
+            //should try parse.
+            studentAssignmentRef.pointsScored = int.Parse(TeacherAssignmentEditorPointsScored.Text);
+            studentAssignmentRef.FullPoints = int.Parse(TeacherAssignmentEditorTotalPoints.Text);
+
+            //Back
+            TeacherAssignmentEditor.Visible = false;
+            TeacherViewOfStudent.Visible = true;
         }
     }
 }
