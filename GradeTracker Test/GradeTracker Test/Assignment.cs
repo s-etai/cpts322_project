@@ -13,7 +13,7 @@ namespace GradeTracker_Test
 
         public double pointsScored { get; set; }
 
-        public List<String> comments;
+        public List<String> comments = new List<string>();
 
         public Assignment(string title, double fullPoints)
         {
@@ -21,6 +21,8 @@ namespace GradeTracker_Test
             FullPoints = fullPoints;
             pointsScored = 0;
         }
+
+        
 
     }
 }

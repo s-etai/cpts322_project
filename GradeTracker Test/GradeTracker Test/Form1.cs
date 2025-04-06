@@ -56,7 +56,11 @@ namespace GradeTracker_Test
         }
 
 
-
+        /// <summary>
+        /// Check username and password and switch to menu if valid
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void Loginbutton_Click(object sender, EventArgs e)
         {
             //Login verification. switch to menu.
@@ -201,6 +205,11 @@ namespace GradeTracker_Test
             courseList.Visible = true;
         }
 
+        /// <summary>
+        /// When a teacher selects a student, switch to selecting the assingment page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void StudentListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             studentForGrading = userList[StudentListBox.SelectedItem.ToString()];
@@ -221,15 +230,25 @@ namespace GradeTracker_Test
 
         }
 
+        /// <summary>
+        /// Back from teacher looking at a student to the list of students in the course.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TeacherViewOfStudentBackButton_Click(object sender, EventArgs e)
         {
             TeacherViewOfStudent.Visible = false;
             CourseDisplay.Visible = true;
         }
 
+        /// <summary>
+        /// Teacher grade a students's assingment.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TeacherViewStudentAssignmentsList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //temparary
+            //temparary get student's assingment copy for editing.
             string courseTitle = TeacherViewStudentAssignmentsList.SelectedItem.ToString();
             Assignment courseAssignmentRef = new Assignment("test", 10);
             //temp get course assignmet ref
@@ -242,9 +261,17 @@ namespace GradeTracker_Test
             }
             studentAssignmentRef = studentForGrading.GetAssignment(courseAssignmentRef);
 
+            //Remove last comment
+            TeacherAssingmentEditorNewComment.Text = string.Empty;
+
+            //Display current grades and comments
             TeacherAssignmentEditorPointsScored.Text = studentAssignmentRef.pointsScored.ToString();
             TeacherAssignmentEditorTotalPoints.Text = studentAssignmentRef.FullPoints.ToString();
             TeacherAssignmentEditorAssignmentName.Text = studentAssignmentRef.Title;
+
+            TeacherAssingmentEditorComments.Items.Clear();
+            TeacherAssingmentEditorComments.Items.AddRange(studentAssignmentRef.comments.ToArray());
+            
 
             //swithch panel
             TeacherViewOfStudent.Visible = false;
@@ -254,17 +281,27 @@ namespace GradeTracker_Test
 
         }
 
+        /// <summary>
+        /// Change the student assingment copy to the input values and go back a page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void TeacherAssignmentEditorSave_Click(object sender, EventArgs e)
         {
             // Change assignmet values if valid, if not leave them as they were.
-            if(double.TryParse(TeacherAssignmentEditorPointsScored.Text, out double pointsScored) && double.TryParse(TeacherAssignmentEditorTotalPoints.Text, out double totalPoints))
+            if (double.TryParse(TeacherAssignmentEditorPointsScored.Text, out double pointsScored) && double.TryParse(TeacherAssignmentEditorTotalPoints.Text, out double totalPoints))
             {
                 studentAssignmentRef.pointsScored = pointsScored;
                 studentAssignmentRef.FullPoints = totalPoints;
             }
 
-            //Back
-            TeacherAssignmentEditor.Visible = false;
+            if (TeacherAssingmentEditorNewComment.Text != string.Empty)
+            {
+                studentAssignmentRef.comments.Add(currentUser.Username + ": " + TeacherAssingmentEditorNewComment.Text);
+            }
+
+                //Back
+                TeacherAssignmentEditor.Visible = false;
             TeacherViewOfStudent.Visible = true;
         }
     }

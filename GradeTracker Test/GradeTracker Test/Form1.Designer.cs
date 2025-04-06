@@ -62,8 +62,8 @@
             label1 = new Label();
             TeacherAssignmentEditor = new Panel();
             TeacherAssignmentEditorSave = new Button();
-            textBox1 = new TextBox();
-            listBox1 = new ListBox();
+            TeacherAssingmentEditorNewComment = new TextBox();
+            TeacherAssingmentEditorComments = new ListBox();
             TeacherAssignmentEditorTotalPoints = new TextBox();
             label9 = new Label();
             TeacherAssignmentEditorPointsScored = new TextBox();
@@ -401,8 +401,8 @@
             // TeacherAssignmentEditor
             // 
             TeacherAssignmentEditor.Controls.Add(TeacherAssignmentEditorSave);
-            TeacherAssignmentEditor.Controls.Add(textBox1);
-            TeacherAssignmentEditor.Controls.Add(listBox1);
+            TeacherAssignmentEditor.Controls.Add(TeacherAssingmentEditorNewComment);
+            TeacherAssignmentEditor.Controls.Add(TeacherAssingmentEditorComments);
             TeacherAssignmentEditor.Controls.Add(TeacherAssignmentEditorTotalPoints);
             TeacherAssignmentEditor.Controls.Add(label9);
             TeacherAssignmentEditor.Controls.Add(TeacherAssignmentEditorPointsScored);
@@ -424,22 +424,22 @@
             TeacherAssignmentEditorSave.UseVisualStyleBackColor = true;
             TeacherAssignmentEditorSave.Click += TeacherAssignmentEditorSave_Click;
             // 
-            // textBox1
+            // TeacherAssingmentEditorNewComment
             // 
-            textBox1.Location = new Point(70, 257);
-            textBox1.Name = "textBox1";
-            textBox1.PlaceholderText = "New comment";
-            textBox1.Size = new Size(491, 31);
-            textBox1.TabIndex = 7;
+            TeacherAssingmentEditorNewComment.Location = new Point(70, 257);
+            TeacherAssingmentEditorNewComment.Name = "TeacherAssingmentEditorNewComment";
+            TeacherAssingmentEditorNewComment.PlaceholderText = "New comment";
+            TeacherAssingmentEditorNewComment.Size = new Size(491, 31);
+            TeacherAssingmentEditorNewComment.TabIndex = 7;
             // 
-            // listBox1
+            // TeacherAssingmentEditorComments
             // 
-            listBox1.FormattingEnabled = true;
-            listBox1.ItemHeight = 25;
-            listBox1.Location = new Point(70, 138);
-            listBox1.Name = "listBox1";
-            listBox1.Size = new Size(491, 104);
-            listBox1.TabIndex = 6;
+            TeacherAssingmentEditorComments.FormattingEnabled = true;
+            TeacherAssingmentEditorComments.ItemHeight = 25;
+            TeacherAssingmentEditorComments.Location = new Point(70, 138);
+            TeacherAssingmentEditorComments.Name = "TeacherAssingmentEditorComments";
+            TeacherAssingmentEditorComments.Size = new Size(491, 104);
+            TeacherAssingmentEditorComments.TabIndex = 6;
             // 
             // TeacherAssignmentEditorTotalPoints
             // 
@@ -559,7 +559,7 @@
         private TextBox TeacherAssignmentEditorPointsScored;
         private Label label8;
         private Button TeacherAssignmentEditorSave;
-        private TextBox textBox1;
-        private ListBox listBox1;
+        private TextBox TeacherAssingmentEditorNewComment;
+        private ListBox TeacherAssingmentEditorComments;
     }
 }
