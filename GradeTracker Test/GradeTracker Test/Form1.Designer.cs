@@ -29,6 +29,16 @@
         private void InitializeComponent()
         {
             Login = new Panel();
+            StudentAssingmentEditor = new Panel();
+            StudentAssingmentEditorBack = new Button();
+            StudentAssingmentEditorComment = new TextBox();
+            label13 = new Label();
+            StudentAssingmentEditorComments = new ListBox();
+            StudentAssingmentEditorTotalPoints = new TextBox();
+            label12 = new Label();
+            StudentAssingmentEditorPointsScored = new TextBox();
+            label11 = new Label();
+            StudentAssingmentEditorCourseName = new Label();
             LoginError = new Label();
             Menu = new Panel();
             TeacherViewOfStudent = new Panel();
@@ -70,24 +80,14 @@
             Password = new TextBox();
             Username = new TextBox();
             label1 = new Label();
-            StudentAssingmentEditor = new Panel();
-            StudentAssingmentEditorBack = new Button();
-            StudentAssingmentEditorComment = new TextBox();
-            label13 = new Label();
-            StudentAssingmentEditorComments = new ListBox();
-            StudentAssingmentEditorTotalPoints = new TextBox();
-            label12 = new Label();
-            StudentAssingmentEditorPointsScored = new TextBox();
-            label11 = new Label();
-            StudentAssingmentEditorCourseName = new Label();
             Login.SuspendLayout();
+            StudentAssingmentEditor.SuspendLayout();
             Menu.SuspendLayout();
             TeacherViewOfStudent.SuspendLayout();
             StudentCourseDisplay.SuspendLayout();
             TeacherAssignmentEditor.SuspendLayout();
             courseList.SuspendLayout();
             CourseDisplay.SuspendLayout();
-            StudentAssingmentEditor.SuspendLayout();
             SuspendLayout();
             // 
             // Login
@@ -104,6 +104,101 @@
             Login.Name = "Login";
             Login.Size = new Size(651, 357);
             Login.TabIndex = 0;
+            // 
+            // StudentAssingmentEditor
+            // 
+            StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorBack);
+            StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorComment);
+            StudentAssingmentEditor.Controls.Add(label13);
+            StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorComments);
+            StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorTotalPoints);
+            StudentAssingmentEditor.Controls.Add(label12);
+            StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorPointsScored);
+            StudentAssingmentEditor.Controls.Add(label11);
+            StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorCourseName);
+            StudentAssingmentEditor.Location = new Point(6, 7);
+            StudentAssingmentEditor.Name = "StudentAssingmentEditor";
+            StudentAssingmentEditor.Size = new Size(632, 364);
+            StudentAssingmentEditor.TabIndex = 1;
+            // 
+            // StudentAssingmentEditorBack
+            // 
+            StudentAssingmentEditorBack.Location = new Point(225, 311);
+            StudentAssingmentEditorBack.Name = "StudentAssingmentEditorBack";
+            StudentAssingmentEditorBack.Size = new Size(135, 34);
+            StudentAssingmentEditorBack.TabIndex = 8;
+            StudentAssingmentEditorBack.Text = "Save and Back";
+            StudentAssingmentEditorBack.UseVisualStyleBackColor = true;
+            StudentAssingmentEditorBack.Click += StudentAssingmentEditorBack_Click;
+            // 
+            // StudentAssingmentEditorComment
+            // 
+            StudentAssingmentEditorComment.Location = new Point(57, 261);
+            StudentAssingmentEditorComment.Name = "StudentAssingmentEditorComment";
+            StudentAssingmentEditorComment.PlaceholderText = "New Comment";
+            StudentAssingmentEditorComment.Size = new Size(477, 31);
+            StudentAssingmentEditorComment.TabIndex = 7;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(57, 98);
+            label13.Name = "label13";
+            label13.Size = new Size(99, 25);
+            label13.TabIndex = 6;
+            label13.Text = "Comments";
+            // 
+            // StudentAssingmentEditorComments
+            // 
+            StudentAssingmentEditorComments.FormattingEnabled = true;
+            StudentAssingmentEditorComments.ItemHeight = 25;
+            StudentAssingmentEditorComments.Location = new Point(56, 126);
+            StudentAssingmentEditorComments.Name = "StudentAssingmentEditorComments";
+            StudentAssingmentEditorComments.Size = new Size(478, 129);
+            StudentAssingmentEditorComments.TabIndex = 5;
+            // 
+            // StudentAssingmentEditorTotalPoints
+            // 
+            StudentAssingmentEditorTotalPoints.Location = new Point(414, 49);
+            StudentAssingmentEditorTotalPoints.Name = "StudentAssingmentEditorTotalPoints";
+            StudentAssingmentEditorTotalPoints.ReadOnly = true;
+            StudentAssingmentEditorTotalPoints.Size = new Size(150, 31);
+            StudentAssingmentEditorTotalPoints.TabIndex = 4;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(302, 49);
+            label12.Name = "label12";
+            label12.Size = new Size(106, 25);
+            label12.TabIndex = 3;
+            label12.Text = "Total Points:";
+            // 
+            // StudentAssingmentEditorPointsScored
+            // 
+            StudentAssingmentEditorPointsScored.Location = new Point(139, 49);
+            StudentAssingmentEditorPointsScored.Name = "StudentAssingmentEditorPointsScored";
+            StudentAssingmentEditorPointsScored.ReadOnly = true;
+            StudentAssingmentEditorPointsScored.Size = new Size(150, 31);
+            StudentAssingmentEditorPointsScored.TabIndex = 2;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(15, 49);
+            label11.Name = "label11";
+            label11.Size = new Size(122, 25);
+            label11.TabIndex = 1;
+            label11.Text = "Points scored:";
+            // 
+            // StudentAssingmentEditorCourseName
+            // 
+            StudentAssingmentEditorCourseName.AutoSize = true;
+            StudentAssingmentEditorCourseName.Location = new Point(204, 16);
+            StudentAssingmentEditorCourseName.Name = "StudentAssingmentEditorCourseName";
+            StudentAssingmentEditorCourseName.Size = new Size(176, 25);
+            StudentAssingmentEditorCourseName.TabIndex = 0;
+            StudentAssingmentEditorCourseName.Text = "<assingment name>";
             // 
             // LoginError
             // 
@@ -505,101 +600,6 @@
             label1.Text = "Login";
             label1.Click += label1_Click;
             // 
-            // StudentAssingmentEditor
-            // 
-            StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorBack);
-            StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorComment);
-            StudentAssingmentEditor.Controls.Add(label13);
-            StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorComments);
-            StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorTotalPoints);
-            StudentAssingmentEditor.Controls.Add(label12);
-            StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorPointsScored);
-            StudentAssingmentEditor.Controls.Add(label11);
-            StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorCourseName);
-            StudentAssingmentEditor.Location = new Point(6, 7);
-            StudentAssingmentEditor.Name = "StudentAssingmentEditor";
-            StudentAssingmentEditor.Size = new Size(632, 364);
-            StudentAssingmentEditor.TabIndex = 1;
-            // 
-            // StudentAssingmentEditorBack
-            // 
-            StudentAssingmentEditorBack.Location = new Point(225, 311);
-            StudentAssingmentEditorBack.Name = "StudentAssingmentEditorBack";
-            StudentAssingmentEditorBack.Size = new Size(135, 34);
-            StudentAssingmentEditorBack.TabIndex = 8;
-            StudentAssingmentEditorBack.Text = "Save and Back";
-            StudentAssingmentEditorBack.UseVisualStyleBackColor = true;
-            StudentAssingmentEditorBack.Click += StudentAssingmentEditorBack_Click;
-            // 
-            // StudentAssingmentEditorComment
-            // 
-            StudentAssingmentEditorComment.Location = new Point(57, 261);
-            StudentAssingmentEditorComment.Name = "StudentAssingmentEditorComment";
-            StudentAssingmentEditorComment.PlaceholderText = "New Comment";
-            StudentAssingmentEditorComment.Size = new Size(477, 31);
-            StudentAssingmentEditorComment.TabIndex = 7;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(57, 98);
-            label13.Name = "label13";
-            label13.Size = new Size(99, 25);
-            label13.TabIndex = 6;
-            label13.Text = "Comments";
-            // 
-            // StudentAssingmentEditorComments
-            // 
-            StudentAssingmentEditorComments.FormattingEnabled = true;
-            StudentAssingmentEditorComments.ItemHeight = 25;
-            StudentAssingmentEditorComments.Location = new Point(56, 126);
-            StudentAssingmentEditorComments.Name = "StudentAssingmentEditorComments";
-            StudentAssingmentEditorComments.Size = new Size(478, 129);
-            StudentAssingmentEditorComments.TabIndex = 5;
-            // 
-            // StudentAssingmentEditorTotalPoints
-            // 
-            StudentAssingmentEditorTotalPoints.Location = new Point(414, 49);
-            StudentAssingmentEditorTotalPoints.Name = "StudentAssingmentEditorTotalPoints";
-            StudentAssingmentEditorTotalPoints.ReadOnly = true;
-            StudentAssingmentEditorTotalPoints.Size = new Size(150, 31);
-            StudentAssingmentEditorTotalPoints.TabIndex = 4;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(302, 49);
-            label12.Name = "label12";
-            label12.Size = new Size(106, 25);
-            label12.TabIndex = 3;
-            label12.Text = "Total Points:";
-            // 
-            // StudentAssingmentEditorPointsScored
-            // 
-            StudentAssingmentEditorPointsScored.Location = new Point(139, 49);
-            StudentAssingmentEditorPointsScored.Name = "StudentAssingmentEditorPointsScored";
-            StudentAssingmentEditorPointsScored.ReadOnly = true;
-            StudentAssingmentEditorPointsScored.Size = new Size(150, 31);
-            StudentAssingmentEditorPointsScored.TabIndex = 2;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(15, 49);
-            label11.Name = "label11";
-            label11.Size = new Size(122, 25);
-            label11.TabIndex = 1;
-            label11.Text = "Points scored:";
-            // 
-            // StudentAssingmentEditorCourseName
-            // 
-            StudentAssingmentEditorCourseName.AutoSize = true;
-            StudentAssingmentEditorCourseName.Location = new Point(204, 16);
-            StudentAssingmentEditorCourseName.Name = "StudentAssingmentEditorCourseName";
-            StudentAssingmentEditorCourseName.Size = new Size(176, 25);
-            StudentAssingmentEditorCourseName.TabIndex = 0;
-            StudentAssingmentEditorCourseName.Text = "<assingment name>";
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
@@ -610,6 +610,8 @@
             Text = "Form1";
             Login.ResumeLayout(false);
             Login.PerformLayout();
+            StudentAssingmentEditor.ResumeLayout(false);
+            StudentAssingmentEditor.PerformLayout();
             Menu.ResumeLayout(false);
             Menu.PerformLayout();
             TeacherViewOfStudent.ResumeLayout(false);
@@ -622,8 +624,6 @@
             courseList.PerformLayout();
             CourseDisplay.ResumeLayout(false);
             CourseDisplay.PerformLayout();
-            StudentAssingmentEditor.ResumeLayout(false);
-            StudentAssingmentEditor.PerformLayout();
             ResumeLayout(false);
         }
 
