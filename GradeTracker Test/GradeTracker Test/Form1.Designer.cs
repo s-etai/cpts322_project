@@ -29,6 +29,17 @@
         private void InitializeComponent()
         {
             Login = new Panel();
+            CourseDisplay = new Panel();
+            TeacherCourseDetailsBackButton = new Button();
+            Menu = new Panel();
+            MenuBackButton = new Button();
+            courses = new Button();
+            label2 = new Label();
+            AssignCourse = new Label();
+            AssignmentList = new ListBox();
+            label5 = new Label();
+            StudentListBox = new ListBox();
+            CourseNameLabel = new Label();
             CreateAccountBuuton = new Button();
             LoginError = new Label();
             Loginbutton = new Button();
@@ -45,16 +56,17 @@
             StudentAssingmentEditorPointsScored = new TextBox();
             label11 = new Label();
             StudentAssingmentEditorCourseName = new Label();
-            Menu = new Panel();
-            MenuBackButton = new Button();
             courseList = new Panel();
+            CreateCourseButton = new Button();
+            CourseListBackButton = new Button();
+            CourselistBox = new ListBox();
+            label3 = new Label();
             StudentCourseDisplay = new Panel();
+            StudentCourseDisplayBackButton = new Button();
+            label6 = new Label();
+            AssignmentListBoxStudent = new ListBox();
+            CourseNameLableStudent = new Label();
             TeacherAssignmentEditor = new Panel();
-            TeacherViewOfStudent = new Panel();
-            TeacherViewOfStudentBackButton = new Button();
-            label7 = new Label();
-            TeacherViewStudentAssignmentsList = new ListBox();
-            StudentNameLabel = new Label();
             TeacherAssignmentEditorSave = new Button();
             TeacherAssingmentEditorNewComment = new TextBox();
             TeacherAssingmentEditorComments = new ListBox();
@@ -64,41 +76,34 @@
             label8 = new Label();
             TeacherAssignmentEditorAssignmentName = new Label();
             TeacherAssignmentEditorStudentName = new Label();
-            StudentCourseDisplayBackButton = new Button();
-            label6 = new Label();
-            AssignmentListBoxStudent = new ListBox();
-            CourseNameLableStudent = new Label();
-            CourseListBackButton = new Button();
-            label4 = new Label();
-            CourselistBox = new ListBox();
-            label3 = new Label();
-            courses = new Button();
-            label2 = new Label();
-            CourseDisplay = new Panel();
-            TeacherCourseDetailsBackButton = new Button();
-            AssignCourse = new Label();
-            AssignmentList = new ListBox();
-            label5 = new Label();
-            StudentListBox = new ListBox();
-            CourseNameLabel = new Label();
+            TeacherViewOfStudent = new Panel();
+            TeacherViewOfStudentBackButton = new Button();
+            label7 = new Label();
+            TeacherViewStudentAssignmentsList = new ListBox();
+            StudentNameLabel = new Label();
             CreateAccountpanel = new Panel();
             CreateAccountCreate = new Button();
             UserTypeDropDown = new ComboBox();
             CreateAccountPassword = new TextBox();
             CreateAccountUserName = new TextBox();
+            AddCoursePanel = new Panel();
+            AddCourseButton = new Button();
+            NewCourseNameTextBox = new TextBox();
             Login.SuspendLayout();
-            StudentAssingmentEditor.SuspendLayout();
+            CourseDisplay.SuspendLayout();
             Menu.SuspendLayout();
+            StudentAssingmentEditor.SuspendLayout();
             courseList.SuspendLayout();
             StudentCourseDisplay.SuspendLayout();
             TeacherAssignmentEditor.SuspendLayout();
             TeacherViewOfStudent.SuspendLayout();
-            CourseDisplay.SuspendLayout();
             CreateAccountpanel.SuspendLayout();
+            AddCoursePanel.SuspendLayout();
             SuspendLayout();
             // 
             // Login
             // 
+            Login.Controls.Add(CourseDisplay);
             Login.Controls.Add(CreateAccountBuuton);
             Login.Controls.Add(LoginError);
             Login.Controls.Add(Loginbutton);
@@ -109,6 +114,118 @@
             Login.Name = "Login";
             Login.Size = new Size(651, 357);
             Login.TabIndex = 0;
+            // 
+            // CourseDisplay
+            // 
+            CourseDisplay.Controls.Add(TeacherCourseDetailsBackButton);
+            CourseDisplay.Controls.Add(Menu);
+            CourseDisplay.Controls.Add(AssignCourse);
+            CourseDisplay.Controls.Add(AssignmentList);
+            CourseDisplay.Controls.Add(label5);
+            CourseDisplay.Controls.Add(StudentListBox);
+            CourseDisplay.Controls.Add(CourseNameLabel);
+            CourseDisplay.Location = new Point(6, 0);
+            CourseDisplay.Name = "CourseDisplay";
+            CourseDisplay.Size = new Size(663, 383);
+            CourseDisplay.TabIndex = 1;
+            // 
+            // TeacherCourseDetailsBackButton
+            // 
+            TeacherCourseDetailsBackButton.Location = new Point(499, 24);
+            TeacherCourseDetailsBackButton.Name = "TeacherCourseDetailsBackButton";
+            TeacherCourseDetailsBackButton.Size = new Size(112, 34);
+            TeacherCourseDetailsBackButton.TabIndex = 5;
+            TeacherCourseDetailsBackButton.Text = "Back";
+            TeacherCourseDetailsBackButton.UseVisualStyleBackColor = true;
+            TeacherCourseDetailsBackButton.Click += TeacherCourseDetailsBackButton_Click;
+            // 
+            // Menu
+            // 
+            Menu.Controls.Add(MenuBackButton);
+            Menu.Controls.Add(courses);
+            Menu.Controls.Add(label2);
+            Menu.Location = new Point(0, 4);
+            Menu.Name = "Menu";
+            Menu.Size = new Size(649, 353);
+            Menu.TabIndex = 1;
+            // 
+            // MenuBackButton
+            // 
+            MenuBackButton.Location = new Point(533, 12);
+            MenuBackButton.Name = "MenuBackButton";
+            MenuBackButton.Size = new Size(112, 34);
+            MenuBackButton.TabIndex = 2;
+            MenuBackButton.Text = "Back";
+            MenuBackButton.UseVisualStyleBackColor = true;
+            MenuBackButton.Click += MenuBackButton_Click;
+            // 
+            // courses
+            // 
+            courses.Location = new Point(266, 48);
+            courses.Name = "courses";
+            courses.Size = new Size(111, 33);
+            courses.TabIndex = 1;
+            courses.Text = "Courses";
+            courses.UseVisualStyleBackColor = true;
+            courses.Click += courses_Click;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Location = new Point(299, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(57, 25);
+            label2.TabIndex = 0;
+            label2.Text = "Menu";
+            // 
+            // AssignCourse
+            // 
+            AssignCourse.AutoSize = true;
+            AssignCourse.Location = new Point(96, 193);
+            AssignCourse.Margin = new Padding(4, 0, 4, 0);
+            AssignCourse.Name = "AssignCourse";
+            AssignCourse.Size = new Size(193, 25);
+            AssignCourse.TabIndex = 4;
+            AssignCourse.Text = "Assignments in Course";
+            // 
+            // AssignmentList
+            // 
+            AssignmentList.FormattingEnabled = true;
+            AssignmentList.ItemHeight = 25;
+            AssignmentList.Location = new Point(86, 232);
+            AssignmentList.Margin = new Padding(4, 5, 4, 5);
+            AssignmentList.Name = "AssignmentList";
+            AssignmentList.Size = new Size(455, 154);
+            AssignmentList.TabIndex = 3;
+            AssignmentList.SelectedIndexChanged += AssignmentList_SelectedIndexChanged;
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(90, 33);
+            label5.Name = "label5";
+            label5.Size = new Size(160, 25);
+            label5.TabIndex = 2;
+            label5.Text = "Students in Course";
+            // 
+            // StudentListBox
+            // 
+            StudentListBox.FormattingEnabled = true;
+            StudentListBox.ItemHeight = 25;
+            StudentListBox.Location = new Point(86, 70);
+            StudentListBox.Name = "StudentListBox";
+            StudentListBox.Size = new Size(455, 104);
+            StudentListBox.TabIndex = 1;
+            StudentListBox.SelectedIndexChanged += StudentListBox_SelectedIndexChanged;
+            // 
+            // CourseNameLabel
+            // 
+            CourseNameLabel.AutoSize = true;
+            CourseNameLabel.Location = new Point(34, 8);
+            CourseNameLabel.Name = "CourseNameLabel";
+            CourseNameLabel.Size = new Size(137, 25);
+            CourseNameLabel.TabIndex = 0;
+            CourseNameLabel.Text = "<course name>";
             // 
             // CreateAccountBuuton
             // 
@@ -175,7 +292,7 @@
             StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorPointsScored);
             StudentAssingmentEditor.Controls.Add(label11);
             StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorCourseName);
-            StudentAssingmentEditor.Location = new Point(51, 64);
+            StudentAssingmentEditor.Location = new Point(22, 12);
             StudentAssingmentEditor.Name = "StudentAssingmentEditor";
             StudentAssingmentEditor.Size = new Size(632, 364);
             StudentAssingmentEditor.TabIndex = 1;
@@ -259,54 +376,107 @@
             StudentAssingmentEditorCourseName.TabIndex = 0;
             StudentAssingmentEditorCourseName.Text = "<assingment name>";
             // 
-            // Menu
-            // 
-            Menu.Controls.Add(MenuBackButton);
-            Menu.Controls.Add(courseList);
-            Menu.Controls.Add(courses);
-            Menu.Controls.Add(label2);
-            Menu.Location = new Point(67, 84);
-            Menu.Name = "Menu";
-            Menu.Size = new Size(649, 353);
-            Menu.TabIndex = 1;
-            // 
-            // MenuBackButton
-            // 
-            MenuBackButton.Location = new Point(533, 12);
-            MenuBackButton.Name = "MenuBackButton";
-            MenuBackButton.Size = new Size(112, 34);
-            MenuBackButton.TabIndex = 2;
-            MenuBackButton.Text = "Back";
-            MenuBackButton.UseVisualStyleBackColor = true;
-            MenuBackButton.Click += MenuBackButton_Click;
-            // 
             // courseList
             // 
-            courseList.Controls.Add(StudentCourseDisplay);
+            courseList.Controls.Add(CreateCourseButton);
             courseList.Controls.Add(CourseListBackButton);
-            courseList.Controls.Add(label4);
             courseList.Controls.Add(CourselistBox);
             courseList.Controls.Add(label3);
-            courseList.Location = new Point(65, 57);
+            courseList.Location = new Point(104, 425);
             courseList.Name = "courseList";
             courseList.Size = new Size(643, 353);
             courseList.TabIndex = 1;
             // 
+            // CreateCourseButton
+            // 
+            CreateCourseButton.Location = new Point(254, 287);
+            CreateCourseButton.Name = "CreateCourseButton";
+            CreateCourseButton.Size = new Size(135, 34);
+            CreateCourseButton.TabIndex = 4;
+            CreateCourseButton.Text = "Create Course";
+            CreateCourseButton.UseVisualStyleBackColor = true;
+            CreateCourseButton.Click += CreateCourseButton_Click;
+            // 
+            // CourseListBackButton
+            // 
+            CourseListBackButton.Location = new Point(512, 12);
+            CourseListBackButton.Name = "CourseListBackButton";
+            CourseListBackButton.Size = new Size(112, 34);
+            CourseListBackButton.TabIndex = 3;
+            CourseListBackButton.Text = "Back";
+            CourseListBackButton.UseVisualStyleBackColor = true;
+            CourseListBackButton.Click += CourseListBackButton_Click;
+            // 
+            // CourselistBox
+            // 
+            CourselistBox.FormattingEnabled = true;
+            CourselistBox.ItemHeight = 25;
+            CourselistBox.Location = new Point(101, 52);
+            CourselistBox.Name = "CourselistBox";
+            CourselistBox.Size = new Size(470, 229);
+            CourselistBox.TabIndex = 1;
+            CourselistBox.SelectedIndexChanged += CourselistBox_SelectedIndexChanged;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Location = new Point(277, 12);
+            label3.Name = "label3";
+            label3.Size = new Size(75, 25);
+            label3.TabIndex = 0;
+            label3.Text = "Courses";
+            // 
             // StudentCourseDisplay
             // 
-            StudentCourseDisplay.Controls.Add(TeacherAssignmentEditor);
             StudentCourseDisplay.Controls.Add(StudentCourseDisplayBackButton);
             StudentCourseDisplay.Controls.Add(label6);
             StudentCourseDisplay.Controls.Add(AssignmentListBoxStudent);
             StudentCourseDisplay.Controls.Add(CourseNameLableStudent);
-            StudentCourseDisplay.Location = new Point(101, 88);
+            StudentCourseDisplay.Location = new Point(19, 12);
             StudentCourseDisplay.Name = "StudentCourseDisplay";
-            StudentCourseDisplay.Size = new Size(644, 393);
+            StudentCourseDisplay.Size = new Size(597, 354);
             StudentCourseDisplay.TabIndex = 1;
+            // 
+            // StudentCourseDisplayBackButton
+            // 
+            StudentCourseDisplayBackButton.Location = new Point(490, 44);
+            StudentCourseDisplayBackButton.Name = "StudentCourseDisplayBackButton";
+            StudentCourseDisplayBackButton.Size = new Size(112, 34);
+            StudentCourseDisplayBackButton.TabIndex = 3;
+            StudentCourseDisplayBackButton.Text = "Back";
+            StudentCourseDisplayBackButton.UseVisualStyleBackColor = true;
+            StudentCourseDisplayBackButton.Click += StudentCourseDisplayBackButton_Click;
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Location = new Point(97, 73);
+            label6.Name = "label6";
+            label6.Size = new Size(114, 25);
+            label6.TabIndex = 2;
+            label6.Text = "Assignments";
+            // 
+            // AssignmentListBoxStudent
+            // 
+            AssignmentListBoxStudent.FormattingEnabled = true;
+            AssignmentListBoxStudent.ItemHeight = 25;
+            AssignmentListBoxStudent.Location = new Point(89, 109);
+            AssignmentListBoxStudent.Name = "AssignmentListBoxStudent";
+            AssignmentListBoxStudent.Size = new Size(455, 204);
+            AssignmentListBoxStudent.TabIndex = 1;
+            AssignmentListBoxStudent.SelectedIndexChanged += AssignmentListBoxStudent_SelectedIndexChanged;
+            // 
+            // CourseNameLableStudent
+            // 
+            CourseNameLableStudent.AutoSize = true;
+            CourseNameLableStudent.Location = new Point(37, 28);
+            CourseNameLableStudent.Name = "CourseNameLableStudent";
+            CourseNameLableStudent.Size = new Size(143, 25);
+            CourseNameLableStudent.TabIndex = 0;
+            CourseNameLableStudent.Text = "<Course Name>";
             // 
             // TeacherAssignmentEditor
             // 
-            TeacherAssignmentEditor.Controls.Add(TeacherViewOfStudent);
             TeacherAssignmentEditor.Controls.Add(TeacherAssignmentEditorSave);
             TeacherAssignmentEditor.Controls.Add(TeacherAssingmentEditorNewComment);
             TeacherAssignmentEditor.Controls.Add(TeacherAssingmentEditorComments);
@@ -316,61 +486,10 @@
             TeacherAssignmentEditor.Controls.Add(label8);
             TeacherAssignmentEditor.Controls.Add(TeacherAssignmentEditorAssignmentName);
             TeacherAssignmentEditor.Controls.Add(TeacherAssignmentEditorStudentName);
-            TeacherAssignmentEditor.Location = new Point(37, 77);
+            TeacherAssignmentEditor.Location = new Point(22, 12);
             TeacherAssignmentEditor.Name = "TeacherAssignmentEditor";
             TeacherAssignmentEditor.Size = new Size(660, 371);
             TeacherAssignmentEditor.TabIndex = 1;
-            // 
-            // TeacherViewOfStudent
-            // 
-            TeacherViewOfStudent.Controls.Add(StudentAssingmentEditor);
-            TeacherViewOfStudent.Controls.Add(TeacherViewOfStudentBackButton);
-            TeacherViewOfStudent.Controls.Add(label7);
-            TeacherViewOfStudent.Controls.Add(TeacherViewStudentAssignmentsList);
-            TeacherViewOfStudent.Controls.Add(StudentNameLabel);
-            TeacherViewOfStudent.Location = new Point(41, 41);
-            TeacherViewOfStudent.Name = "TeacherViewOfStudent";
-            TeacherViewOfStudent.Size = new Size(657, 349);
-            TeacherViewOfStudent.TabIndex = 1;
-            // 
-            // TeacherViewOfStudentBackButton
-            // 
-            TeacherViewOfStudentBackButton.Location = new Point(511, 42);
-            TeacherViewOfStudentBackButton.Name = "TeacherViewOfStudentBackButton";
-            TeacherViewOfStudentBackButton.Size = new Size(112, 34);
-            TeacherViewOfStudentBackButton.TabIndex = 3;
-            TeacherViewOfStudentBackButton.Text = "Back";
-            TeacherViewOfStudentBackButton.UseVisualStyleBackColor = true;
-            TeacherViewOfStudentBackButton.Click += TeacherViewOfStudentBackButton_Click;
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Location = new Point(83, 64);
-            label7.Name = "label7";
-            label7.Size = new Size(114, 25);
-            label7.TabIndex = 2;
-            label7.Text = "Assignments";
-            // 
-            // TeacherViewStudentAssignmentsList
-            // 
-            TeacherViewStudentAssignmentsList.FormattingEnabled = true;
-            TeacherViewStudentAssignmentsList.ItemHeight = 25;
-            TeacherViewStudentAssignmentsList.Location = new Point(83, 92);
-            TeacherViewStudentAssignmentsList.Name = "TeacherViewStudentAssignmentsList";
-            TeacherViewStudentAssignmentsList.Size = new Size(478, 254);
-            TeacherViewStudentAssignmentsList.TabIndex = 1;
-            TeacherViewStudentAssignmentsList.SelectedIndexChanged += TeacherViewStudentAssignmentsList_SelectedIndexChanged;
-            // 
-            // StudentNameLabel
-            // 
-            StudentNameLabel.AutoSize = true;
-            StudentNameLabel.Location = new Point(50, 20);
-            StudentNameLabel.Name = "StudentNameLabel";
-            StudentNameLabel.Size = new Size(146, 25);
-            StudentNameLabel.TabIndex = 0;
-            StudentNameLabel.Text = "<Student name>";
-            StudentNameLabel.Click += StudentNameLabel_Click;
             // 
             // TeacherAssignmentEditorSave
             // 
@@ -449,173 +568,55 @@
             TeacherAssignmentEditorStudentName.TabIndex = 0;
             TeacherAssignmentEditorStudentName.Text = "<Student Name>";
             // 
-            // StudentCourseDisplayBackButton
+            // TeacherViewOfStudent
             // 
-            StudentCourseDisplayBackButton.Location = new Point(490, 44);
-            StudentCourseDisplayBackButton.Name = "StudentCourseDisplayBackButton";
-            StudentCourseDisplayBackButton.Size = new Size(112, 34);
-            StudentCourseDisplayBackButton.TabIndex = 3;
-            StudentCourseDisplayBackButton.Text = "Back";
-            StudentCourseDisplayBackButton.UseVisualStyleBackColor = true;
-            StudentCourseDisplayBackButton.Click += StudentCourseDisplayBackButton_Click;
+            TeacherViewOfStudent.Controls.Add(TeacherViewOfStudentBackButton);
+            TeacherViewOfStudent.Controls.Add(label7);
+            TeacherViewOfStudent.Controls.Add(TeacherViewStudentAssignmentsList);
+            TeacherViewOfStudent.Controls.Add(StudentNameLabel);
+            TeacherViewOfStudent.Location = new Point(15, 12);
+            TeacherViewOfStudent.Name = "TeacherViewOfStudent";
+            TeacherViewOfStudent.Size = new Size(657, 349);
+            TeacherViewOfStudent.TabIndex = 1;
             // 
-            // label6
+            // TeacherViewOfStudentBackButton
             // 
-            label6.AutoSize = true;
-            label6.Location = new Point(97, 73);
-            label6.Name = "label6";
-            label6.Size = new Size(114, 25);
-            label6.TabIndex = 2;
-            label6.Text = "Assignments";
+            TeacherViewOfStudentBackButton.Location = new Point(511, 42);
+            TeacherViewOfStudentBackButton.Name = "TeacherViewOfStudentBackButton";
+            TeacherViewOfStudentBackButton.Size = new Size(112, 34);
+            TeacherViewOfStudentBackButton.TabIndex = 3;
+            TeacherViewOfStudentBackButton.Text = "Back";
+            TeacherViewOfStudentBackButton.UseVisualStyleBackColor = true;
+            TeacherViewOfStudentBackButton.Click += TeacherViewOfStudentBackButton_Click;
             // 
-            // AssignmentListBoxStudent
+            // label7
             // 
-            AssignmentListBoxStudent.FormattingEnabled = true;
-            AssignmentListBoxStudent.ItemHeight = 25;
-            AssignmentListBoxStudent.Location = new Point(89, 109);
-            AssignmentListBoxStudent.Name = "AssignmentListBoxStudent";
-            AssignmentListBoxStudent.Size = new Size(455, 204);
-            AssignmentListBoxStudent.TabIndex = 1;
-            AssignmentListBoxStudent.SelectedIndexChanged += AssignmentListBoxStudent_SelectedIndexChanged;
+            label7.AutoSize = true;
+            label7.Location = new Point(83, 64);
+            label7.Name = "label7";
+            label7.Size = new Size(114, 25);
+            label7.TabIndex = 2;
+            label7.Text = "Assignments";
             // 
-            // CourseNameLableStudent
+            // TeacherViewStudentAssignmentsList
             // 
-            CourseNameLableStudent.AutoSize = true;
-            CourseNameLableStudent.Location = new Point(37, 28);
-            CourseNameLableStudent.Name = "CourseNameLableStudent";
-            CourseNameLableStudent.Size = new Size(143, 25);
-            CourseNameLableStudent.TabIndex = 0;
-            CourseNameLableStudent.Text = "<Course Name>";
+            TeacherViewStudentAssignmentsList.FormattingEnabled = true;
+            TeacherViewStudentAssignmentsList.ItemHeight = 25;
+            TeacherViewStudentAssignmentsList.Location = new Point(83, 92);
+            TeacherViewStudentAssignmentsList.Name = "TeacherViewStudentAssignmentsList";
+            TeacherViewStudentAssignmentsList.Size = new Size(478, 254);
+            TeacherViewStudentAssignmentsList.TabIndex = 1;
+            TeacherViewStudentAssignmentsList.SelectedIndexChanged += TeacherViewStudentAssignmentsList_SelectedIndexChanged;
             // 
-            // CourseListBackButton
+            // StudentNameLabel
             // 
-            CourseListBackButton.Location = new Point(512, 12);
-            CourseListBackButton.Name = "CourseListBackButton";
-            CourseListBackButton.Size = new Size(112, 34);
-            CourseListBackButton.TabIndex = 3;
-            CourseListBackButton.Text = "Back";
-            CourseListBackButton.UseVisualStyleBackColor = true;
-            CourseListBackButton.Click += CourseListBackButton_Click;
-            // 
-            // label4
-            // 
-            label4.AutoSize = true;
-            label4.Location = new Point(281, 293);
-            label4.Name = "label4";
-            label4.Size = new Size(59, 25);
-            label4.TabIndex = 2;
-            label4.Text = "label4";
-            // 
-            // CourselistBox
-            // 
-            CourselistBox.FormattingEnabled = true;
-            CourselistBox.ItemHeight = 25;
-            CourselistBox.Location = new Point(101, 52);
-            CourselistBox.Name = "CourselistBox";
-            CourselistBox.Size = new Size(470, 229);
-            CourselistBox.TabIndex = 1;
-            CourselistBox.SelectedIndexChanged += CourselistBox_SelectedIndexChanged;
-            // 
-            // label3
-            // 
-            label3.AutoSize = true;
-            label3.Location = new Point(277, 12);
-            label3.Name = "label3";
-            label3.Size = new Size(75, 25);
-            label3.TabIndex = 0;
-            label3.Text = "Courses";
-            // 
-            // courses
-            // 
-            courses.Location = new Point(266, 48);
-            courses.Name = "courses";
-            courses.Size = new Size(111, 33);
-            courses.TabIndex = 1;
-            courses.Text = "Courses";
-            courses.UseVisualStyleBackColor = true;
-            courses.Click += courses_Click;
-            // 
-            // label2
-            // 
-            label2.AutoSize = true;
-            label2.Location = new Point(299, 12);
-            label2.Name = "label2";
-            label2.Size = new Size(57, 25);
-            label2.TabIndex = 0;
-            label2.Text = "Menu";
-            // 
-            // CourseDisplay
-            // 
-            CourseDisplay.Controls.Add(TeacherCourseDetailsBackButton);
-            CourseDisplay.Controls.Add(Menu);
-            CourseDisplay.Controls.Add(AssignCourse);
-            CourseDisplay.Controls.Add(AssignmentList);
-            CourseDisplay.Controls.Add(label5);
-            CourseDisplay.Controls.Add(StudentListBox);
-            CourseDisplay.Controls.Add(CourseNameLabel);
-            CourseDisplay.Location = new Point(227, 409);
-            CourseDisplay.Name = "CourseDisplay";
-            CourseDisplay.Size = new Size(663, 383);
-            CourseDisplay.TabIndex = 1;
-            // 
-            // TeacherCourseDetailsBackButton
-            // 
-            TeacherCourseDetailsBackButton.Location = new Point(499, 24);
-            TeacherCourseDetailsBackButton.Name = "TeacherCourseDetailsBackButton";
-            TeacherCourseDetailsBackButton.Size = new Size(112, 34);
-            TeacherCourseDetailsBackButton.TabIndex = 5;
-            TeacherCourseDetailsBackButton.Text = "Back";
-            TeacherCourseDetailsBackButton.UseVisualStyleBackColor = true;
-            TeacherCourseDetailsBackButton.Click += TeacherCourseDetailsBackButton_Click;
-            // 
-            // AssignCourse
-            // 
-            AssignCourse.AutoSize = true;
-            AssignCourse.Location = new Point(96, 193);
-            AssignCourse.Margin = new Padding(4, 0, 4, 0);
-            AssignCourse.Name = "AssignCourse";
-            AssignCourse.Size = new Size(193, 25);
-            AssignCourse.TabIndex = 4;
-            AssignCourse.Text = "Assignments in Course";
-            // 
-            // AssignmentList
-            // 
-            AssignmentList.FormattingEnabled = true;
-            AssignmentList.ItemHeight = 25;
-            AssignmentList.Location = new Point(86, 232);
-            AssignmentList.Margin = new Padding(4, 5, 4, 5);
-            AssignmentList.Name = "AssignmentList";
-            AssignmentList.Size = new Size(455, 154);
-            AssignmentList.TabIndex = 3;
-            AssignmentList.SelectedIndexChanged += AssignmentList_SelectedIndexChanged;
-            // 
-            // label5
-            // 
-            label5.AutoSize = true;
-            label5.Location = new Point(90, 33);
-            label5.Name = "label5";
-            label5.Size = new Size(160, 25);
-            label5.TabIndex = 2;
-            label5.Text = "Students in Course";
-            // 
-            // StudentListBox
-            // 
-            StudentListBox.FormattingEnabled = true;
-            StudentListBox.ItemHeight = 25;
-            StudentListBox.Location = new Point(86, 70);
-            StudentListBox.Name = "StudentListBox";
-            StudentListBox.Size = new Size(455, 104);
-            StudentListBox.TabIndex = 1;
-            StudentListBox.SelectedIndexChanged += StudentListBox_SelectedIndexChanged;
-            // 
-            // CourseNameLabel
-            // 
-            CourseNameLabel.AutoSize = true;
-            CourseNameLabel.Location = new Point(34, 8);
-            CourseNameLabel.Name = "CourseNameLabel";
-            CourseNameLabel.Size = new Size(137, 25);
-            CourseNameLabel.TabIndex = 0;
-            CourseNameLabel.Text = "<course name>";
+            StudentNameLabel.AutoSize = true;
+            StudentNameLabel.Location = new Point(50, 20);
+            StudentNameLabel.Name = "StudentNameLabel";
+            StudentNameLabel.Size = new Size(146, 25);
+            StudentNameLabel.TabIndex = 0;
+            StudentNameLabel.Text = "<Student name>";
+            StudentNameLabel.Click += StudentNameLabel_Click;
             // 
             // CreateAccountpanel
             // 
@@ -623,9 +624,9 @@
             CreateAccountpanel.Controls.Add(UserTypeDropDown);
             CreateAccountpanel.Controls.Add(CreateAccountPassword);
             CreateAccountpanel.Controls.Add(CreateAccountUserName);
-            CreateAccountpanel.Location = new Point(711, 12);
+            CreateAccountpanel.Location = new Point(16, 9);
             CreateAccountpanel.Name = "CreateAccountpanel";
-            CreateAccountpanel.Size = new Size(572, 357);
+            CreateAccountpanel.Size = new Size(648, 357);
             CreateAccountpanel.TabIndex = 2;
             // 
             // CreateAccountCreate
@@ -663,22 +664,56 @@
             CreateAccountUserName.Size = new Size(150, 31);
             CreateAccountUserName.TabIndex = 0;
             // 
+            // AddCoursePanel
+            // 
+            AddCoursePanel.Controls.Add(AddCourseButton);
+            AddCoursePanel.Controls.Add(NewCourseNameTextBox);
+            AddCoursePanel.Location = new Point(785, 19);
+            AddCoursePanel.Name = "AddCoursePanel";
+            AddCoursePanel.Size = new Size(471, 319);
+            AddCoursePanel.TabIndex = 3;
+            // 
+            // AddCourseButton
+            // 
+            AddCourseButton.Location = new Point(166, 163);
+            AddCourseButton.Name = "AddCourseButton";
+            AddCourseButton.Size = new Size(151, 34);
+            AddCourseButton.TabIndex = 1;
+            AddCourseButton.Text = "Add Course";
+            AddCourseButton.UseVisualStyleBackColor = true;
+            AddCourseButton.Click += AddCourseButton_Click;
+            // 
+            // NewCourseNameTextBox
+            // 
+            NewCourseNameTextBox.Location = new Point(60, 85);
+            NewCourseNameTextBox.Name = "NewCourseNameTextBox";
+            NewCourseNameTextBox.PlaceholderText = "New course name";
+            NewCourseNameTextBox.Size = new Size(369, 31);
+            NewCourseNameTextBox.TabIndex = 0;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1359, 885);
+            Controls.Add(AddCoursePanel);
+            Controls.Add(StudentAssingmentEditor);
+            Controls.Add(TeacherViewOfStudent);
+            Controls.Add(TeacherAssignmentEditor);
+            Controls.Add(StudentCourseDisplay);
             Controls.Add(CreateAccountpanel);
+            Controls.Add(courseList);
             Controls.Add(Login);
-            Controls.Add(CourseDisplay);
             Name = "Form1";
             Text = "Form1";
             Login.ResumeLayout(false);
             Login.PerformLayout();
-            StudentAssingmentEditor.ResumeLayout(false);
-            StudentAssingmentEditor.PerformLayout();
+            CourseDisplay.ResumeLayout(false);
+            CourseDisplay.PerformLayout();
             Menu.ResumeLayout(false);
             Menu.PerformLayout();
+            StudentAssingmentEditor.ResumeLayout(false);
+            StudentAssingmentEditor.PerformLayout();
             courseList.ResumeLayout(false);
             courseList.PerformLayout();
             StudentCourseDisplay.ResumeLayout(false);
@@ -687,10 +722,10 @@
             TeacherAssignmentEditor.PerformLayout();
             TeacherViewOfStudent.ResumeLayout(false);
             TeacherViewOfStudent.PerformLayout();
-            CourseDisplay.ResumeLayout(false);
-            CourseDisplay.PerformLayout();
             CreateAccountpanel.ResumeLayout(false);
             CreateAccountpanel.PerformLayout();
+            AddCoursePanel.ResumeLayout(false);
+            AddCoursePanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -708,7 +743,6 @@
         private Label label3;
         private Label LoginError;
         private ListBox CourselistBox;
-        private Label label4;
         private Panel CourseDisplay;
         private Label CourseNameLabel;
         private ListBox StudentListBox;
@@ -754,5 +788,9 @@
         private TextBox CreateAccountUserName;
         private Button CreateAccountCreate;
         private ComboBox UserTypeDropDown;
+        private Button CreateCourseButton;
+        private Panel AddCoursePanel;
+        private Button AddCourseButton;
+        private TextBox NewCourseNameTextBox;
     }
 }

@@ -116,6 +116,8 @@ namespace GradeTracker_Test
             StudentAssingmentEditor.Visible = false;
             this.Controls.Add(this.CreateAccountpanel);
             CreateAccountpanel.Visible = false;
+            this.Controls.Add(this.AddCoursePanel);
+            AddCoursePanel.Visible = false;
 
             this.UserTypeDropDown.Items.Add("Student");
             this.UserTypeDropDown.Items.Add("Teacher");
@@ -380,7 +382,7 @@ namespace GradeTracker_Test
             // Add new student or teacher to dict depending on dropdown.
             if (this.UserTypeDropDown.SelectedItem.ToString() == "Student")
             {
-                if(!userDictionary.ContainsKey(newUsername))
+                if (!userDictionary.ContainsKey(newUsername))
                 {
                     userDictionary[newUsername] = new Student(newUsername, newPassword);
 
@@ -397,6 +399,39 @@ namespace GradeTracker_Test
                     CreateAccountpanel.Visible = false;
                     Login.Visible = true;
                 }
+            }
+
+        }
+
+        /// <summary>
+        /// Switch to create course page.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreateCourseButton_Click(object sender, EventArgs e)
+        {
+            if(currentUser.GetType() == typeof(Teacher))
+            {
+                this.courseList.Visible = false;
+                this.AddCoursePanel.Visible = true;
+            }
+        }
+
+        /// <summary>
+        /// Add course.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void AddCourseButton_Click(object sender, EventArgs e)
+        {
+            string newName = NewCourseNameTextBox.Text;
+            if (!currentUser.Courses.ContainsKey(newName))
+            {
+                currentUser.Courses[newName] = new Course(newName, new List<Student>(), new List<Assignment>());
+                this.courseList.Visible = true;
+                this.AddCoursePanel.Visible = false;
+                CourselistBox.Items.Clear();
+                CourselistBox.Items.AddRange(currentUser.Courses.Keys.ToArray());
             }
         }
     }
