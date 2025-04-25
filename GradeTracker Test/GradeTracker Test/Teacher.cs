@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GradeTracker_Test
 {
-    internal class Teacher : User
+    public class Teacher : User
     {
         //public List<Course> CourseList;
         //public Dictionary<string, Course> CourseList = new Dictionary<string, Course>();

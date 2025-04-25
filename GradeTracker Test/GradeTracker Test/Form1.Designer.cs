@@ -783,6 +783,7 @@
             Controls.Add(Login);
             Name = "Form1";
             Text = "Form1";
+            FormClosing += Form1_FormClosing;
             Login.ResumeLayout(false);
             Login.PerformLayout();
             CourseDisplay.ResumeLayout(false);

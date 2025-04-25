@@ -1,0 +1,26 @@
+{
+  "joe": {
+    "Username": "joe",
+    "Password": "123"
+  },
+  "eli": {
+    "Username": "eli",
+    "Password": "123"
+  },
+  "elliott": {
+    "Username": "elliott",
+    "Password": "456"
+  },
+  "jace": {
+    "Username": "jace",
+    "Password": "123"
+  },
+  "stockton": {
+    "Username": "stockton",
+    "Password": "123"
+  },
+  "lol": {
+    "Username": "lol",
+    "Password": "omg"
+  }
+}

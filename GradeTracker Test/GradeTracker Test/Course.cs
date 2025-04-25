@@ -6,15 +6,15 @@ using System.Threading.Tasks;
 
 namespace GradeTracker_Test
 {
-    internal class Course
+    public class Course
     {
         public string CourseName { get; set; }
 
         // not sure if this should be private
-        public Dictionary<string, Student> Students = new Dictionary<string, Student>();
+        public Dictionary<string, Student> Students { get; set;  } = new Dictionary<string, Student>();
 
         // title assingment pair
-        public Dictionary<string, Assignment> Assignments = new Dictionary<string, Assignment>();
+        public Dictionary<string, Assignment> Assignments { get; set; } = new Dictionary<string, Assignment>();
 
 
         public Course(string courseName, List<Student> students, List<Assignment> assignments)

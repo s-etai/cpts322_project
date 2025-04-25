@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GradeTracker_Test
 {
-    internal class Student : User
+    public class Student : User
     {
         /// <summary>
         /// Keep all the students assignment info (their grade and comments spesific to them)

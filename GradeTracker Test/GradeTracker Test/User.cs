@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GradeTracker_Test
 {
-    internal class User
+    public class User
     {
         public string Username { get; set; }
         public string Password { get; set; }
@@ -14,7 +14,7 @@ namespace GradeTracker_Test
         //Course name as key, course as value.
         //For teachers, the list of couses they have.
         //For Students the list of couses they are in.
-        public Dictionary<String, Course> Courses = new Dictionary<String, Course>();
+        public Dictionary<String, Course> Courses { get; set; } = new Dictionary<String, Course>();
 
         public User(string username, string password)
         {

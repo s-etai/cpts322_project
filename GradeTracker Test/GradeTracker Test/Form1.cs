@@ -1,11 +1,13 @@
 using System.ComponentModel.DataAnnotations;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.Header;
+using System.Text.Json;
+using System.IO;
 
 namespace GradeTracker_Test
 {
     public partial class Form1 : Form
     {
-        Dictionary<string, User> userDictionary = new Dictionary<string, User>();
+        Dictionary<string, User> userDictionary;
         User currentUser;
         Course currentCourse;
         User studentForGrading; // The student that the teacher is changing the assignments of.
@@ -14,10 +16,11 @@ namespace GradeTracker_Test
 
         public Form1()
         {
+            this.LoadTracker();
 
             init_panels();
 
-            ///test teachers
+
             program.initTeachers(userDictionary);
 
             List<Student> testStudents = new List<Student>();
@@ -42,6 +45,31 @@ namespace GradeTracker_Test
 
 
         }
+
+        private void SaveTracker()
+        {
+            string exePath = AppDomain.CurrentDomain.BaseDirectory;
+            string filePath = Path.Combine(exePath, "Users.json");
+            string json = JsonSerializer.Serialize(userDictionary, new JsonSerializerOptions { WriteIndented = true });
+            File.WriteAllText(filePath, json);
+        }
+
+        private void LoadTracker()
+        {
+            string exePath = AppDomain.CurrentDomain.BaseDirectory;
+            string filePath = Path.Combine(exePath, "Users.json");
+
+            if (File.Exists(filePath))
+            {
+                string json = File.ReadAllText(filePath);
+                this.userDictionary = JsonSerializer.Deserialize<Dictionary<string, User>>(json);
+            }
+            else
+            {
+                this.userDictionary = new Dictionary<string, User>();
+            }
+        }
+
 
 
         /// <summary>
@@ -483,6 +511,11 @@ namespace GradeTracker_Test
                 AssignmentList.Items.Clear();
                 AssignmentList.Items.AddRange(currentCourse.Assignments.Keys.ToArray());
             }
+        }
+
+        private void Form1_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            this.SaveTracker();
         }
     }
 }
