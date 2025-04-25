@@ -1,8 +1,4 @@
 {
-  "joe": {
-    "Username": "joe",
-    "Password": "123"
-  },
   "eli": {
     "Username": "eli",
     "Password": "123"
@@ -22,5 +18,9 @@
   "lol": {
     "Username": "lol",
     "Password": "omg"
+  },
+  "test123": {
+    "Username": "test123",
+    "Password": "123"
   }
 }

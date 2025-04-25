@@ -6,14 +6,14 @@ using System.Threading.Tasks;
 
 namespace GradeTracker_Test
 {
-    public class Assignment
+    internal class Assignment
     {
         public string Title { get; set; }
         public double FullPoints { get; set; }
 
         public double pointsScored { get; set; }
 
-        public List<String> comments { get; set; } = new List<string>();
+        public List<String> comments = new List<string>();
 
         public Assignment(string title, double fullPoints)
         {

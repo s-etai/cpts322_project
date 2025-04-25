@@ -30,6 +30,15 @@
         {
             Login = new Panel();
             CourseDisplay = new Panel();
+            CreateAssignmentPanel = new Panel();
+            CreateAssignmentButton = new Button();
+            MaxPointsTextBox = new TextBox();
+            AssignmentTitleTextBox = new TextBox();
+            CreateAccountpanel = new Panel();
+            CreateAccountCreate = new Button();
+            UserTypeDropDown = new ComboBox();
+            CreateAccountPassword = new TextBox();
+            CreateAccountUserName = new TextBox();
             CreateAssignmentSitchButton = new Button();
             AddSelectedStudentButton = new Button();
             StudentSelectDropDown = new ComboBox();
@@ -50,19 +59,29 @@
             courses = new Button();
             label2 = new Label();
             StudentAssingmentEditor = new Panel();
+            AddCoursePanel = new Panel();
+            AddCourseButton = new Button();
+            NewCourseNameTextBox = new TextBox();
             StudentAssingmentEditorBack = new Button();
+            StudentAssingmentEditorComment = new TextBox();
+            label13 = new Label();
+            StudentAssingmentEditorComments = new ListBox();
+            StudentAssingmentEditorTotalPoints = new TextBox();
+            label12 = new Label();
+            StudentAssingmentEditorPointsScored = new TextBox();
+            label11 = new Label();
+            StudentAssingmentEditorCourseName = new Label();
             StudentCourseDisplay = new Panel();
+            label10 = new Label();
+            GPATextBox = new TextBox();
+            label4 = new Label();
+            CourseGradeTextBox = new TextBox();
             StudentCourseDisplayBackButton = new Button();
             label6 = new Label();
             AssignmentListBoxStudent = new ListBox();
             CourseNameLableStudent = new Label();
             TeacherAssignmentEditor = new Panel();
             TeacherAssignmentEditorSave = new Button();
-            CreateAccountpanel = new Panel();
-            CreateAccountCreate = new Button();
-            UserTypeDropDown = new ComboBox();
-            CreateAccountPassword = new TextBox();
-            CreateAccountUserName = new TextBox();
             TeacherAssingmentEditorNewComment = new TextBox();
             TeacherAssingmentEditorComments = new ListBox();
             TeacherAssignmentEditorTotalPoints = new TextBox();
@@ -76,37 +95,22 @@
             label7 = new Label();
             TeacherViewStudentAssignmentsList = new ListBox();
             StudentNameLabel = new Label();
-            StudentAssingmentEditorComment = new TextBox();
-            label13 = new Label();
-            StudentAssingmentEditorComments = new ListBox();
-            StudentAssingmentEditorTotalPoints = new TextBox();
-            label12 = new Label();
-            StudentAssingmentEditorPointsScored = new TextBox();
-            label11 = new Label();
-            StudentAssingmentEditorCourseName = new Label();
             courseList = new Panel();
-            AddCoursePanel = new Panel();
-            AddCourseButton = new Button();
-            NewCourseNameTextBox = new TextBox();
             CreateCourseButton = new Button();
             CourseListBackButton = new Button();
             CourselistBox = new ListBox();
             label3 = new Label();
-            CreateAssignmentPanel = new Panel();
-            CreateAssignmentButton = new Button();
-            MaxPointsTextBox = new TextBox();
-            AssignmentTitleTextBox = new TextBox();
             Login.SuspendLayout();
             CourseDisplay.SuspendLayout();
+            CreateAssignmentPanel.SuspendLayout();
+            CreateAccountpanel.SuspendLayout();
             Menu.SuspendLayout();
             StudentAssingmentEditor.SuspendLayout();
+            AddCoursePanel.SuspendLayout();
             StudentCourseDisplay.SuspendLayout();
             TeacherAssignmentEditor.SuspendLayout();
-            CreateAccountpanel.SuspendLayout();
             TeacherViewOfStudent.SuspendLayout();
             courseList.SuspendLayout();
-            AddCoursePanel.SuspendLayout();
-            CreateAssignmentPanel.SuspendLayout();
             SuspendLayout();
             // 
             // Login
@@ -125,6 +129,8 @@
             // 
             // CourseDisplay
             // 
+            CourseDisplay.Controls.Add(CreateAssignmentPanel);
+            CourseDisplay.Controls.Add(CreateAccountpanel);
             CourseDisplay.Controls.Add(CreateAssignmentSitchButton);
             CourseDisplay.Controls.Add(AddSelectedStudentButton);
             CourseDisplay.Controls.Add(StudentSelectDropDown);
@@ -138,6 +144,88 @@
             CourseDisplay.Name = "CourseDisplay";
             CourseDisplay.Size = new Size(663, 383);
             CourseDisplay.TabIndex = 1;
+            // 
+            // CreateAssignmentPanel
+            // 
+            CreateAssignmentPanel.Controls.Add(CreateAssignmentButton);
+            CreateAssignmentPanel.Controls.Add(MaxPointsTextBox);
+            CreateAssignmentPanel.Controls.Add(AssignmentTitleTextBox);
+            CreateAssignmentPanel.Location = new Point(17, 7);
+            CreateAssignmentPanel.Name = "CreateAssignmentPanel";
+            CreateAssignmentPanel.Size = new Size(623, 357);
+            CreateAssignmentPanel.TabIndex = 2;
+            // 
+            // CreateAssignmentButton
+            // 
+            CreateAssignmentButton.Location = new Point(176, 202);
+            CreateAssignmentButton.Name = "CreateAssignmentButton";
+            CreateAssignmentButton.Size = new Size(177, 34);
+            CreateAssignmentButton.TabIndex = 2;
+            CreateAssignmentButton.Text = "Create Assignment";
+            CreateAssignmentButton.UseVisualStyleBackColor = true;
+            CreateAssignmentButton.Click += CreateAssignmentButton_Click;
+            // 
+            // MaxPointsTextBox
+            // 
+            MaxPointsTextBox.Location = new Point(144, 134);
+            MaxPointsTextBox.Name = "MaxPointsTextBox";
+            MaxPointsTextBox.PlaceholderText = "Max points";
+            MaxPointsTextBox.Size = new Size(243, 31);
+            MaxPointsTextBox.TabIndex = 1;
+            // 
+            // AssignmentTitleTextBox
+            // 
+            AssignmentTitleTextBox.Location = new Point(144, 77);
+            AssignmentTitleTextBox.Name = "AssignmentTitleTextBox";
+            AssignmentTitleTextBox.PlaceholderText = "Assignment title";
+            AssignmentTitleTextBox.Size = new Size(243, 31);
+            AssignmentTitleTextBox.TabIndex = 0;
+            // 
+            // CreateAccountpanel
+            // 
+            CreateAccountpanel.Controls.Add(CreateAccountCreate);
+            CreateAccountpanel.Controls.Add(UserTypeDropDown);
+            CreateAccountpanel.Controls.Add(CreateAccountPassword);
+            CreateAccountpanel.Controls.Add(CreateAccountUserName);
+            CreateAccountpanel.Location = new Point(0, 4);
+            CreateAccountpanel.Name = "CreateAccountpanel";
+            CreateAccountpanel.Size = new Size(648, 357);
+            CreateAccountpanel.TabIndex = 2;
+            // 
+            // CreateAccountCreate
+            // 
+            CreateAccountCreate.Location = new Point(220, 240);
+            CreateAccountCreate.Name = "CreateAccountCreate";
+            CreateAccountCreate.Size = new Size(154, 34);
+            CreateAccountCreate.TabIndex = 3;
+            CreateAccountCreate.Text = "Create account";
+            CreateAccountCreate.UseVisualStyleBackColor = true;
+            CreateAccountCreate.Click += CreateAccountCreate_Click;
+            // 
+            // UserTypeDropDown
+            // 
+            UserTypeDropDown.DropDownStyle = ComboBoxStyle.DropDownList;
+            UserTypeDropDown.FormattingEnabled = true;
+            UserTypeDropDown.Location = new Point(203, 175);
+            UserTypeDropDown.Name = "UserTypeDropDown";
+            UserTypeDropDown.Size = new Size(182, 33);
+            UserTypeDropDown.TabIndex = 2;
+            // 
+            // CreateAccountPassword
+            // 
+            CreateAccountPassword.Location = new Point(224, 120);
+            CreateAccountPassword.Name = "CreateAccountPassword";
+            CreateAccountPassword.PlaceholderText = "Password";
+            CreateAccountPassword.Size = new Size(150, 31);
+            CreateAccountPassword.TabIndex = 1;
+            // 
+            // CreateAccountUserName
+            // 
+            CreateAccountUserName.Location = new Point(224, 70);
+            CreateAccountUserName.Name = "CreateAccountUserName";
+            CreateAccountUserName.PlaceholderText = "Username";
+            CreateAccountUserName.Size = new Size(150, 31);
+            CreateAccountUserName.TabIndex = 0;
             // 
             // CreateAssignmentSitchButton
             // 
@@ -286,7 +374,8 @@
             Menu.Controls.Add(MenuBackButton);
             Menu.Controls.Add(courses);
             Menu.Controls.Add(label2);
-            Menu.Location = new Point(98, 425);
+            Menu.Controls.Add(courseList);
+            Menu.Location = new Point(8, 8);
             Menu.Name = "Menu";
             Menu.Size = new Size(649, 353);
             Menu.TabIndex = 1;
@@ -322,10 +411,8 @@
             // 
             // StudentAssingmentEditor
             // 
+            StudentAssingmentEditor.Controls.Add(AddCoursePanel);
             StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorBack);
-            StudentAssingmentEditor.Controls.Add(StudentCourseDisplay);
-            StudentAssingmentEditor.Controls.Add(TeacherAssignmentEditor);
-            StudentAssingmentEditor.Controls.Add(TeacherViewOfStudent);
             StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorComment);
             StudentAssingmentEditor.Controls.Add(label13);
             StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorComments);
@@ -334,10 +421,37 @@
             StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorPointsScored);
             StudentAssingmentEditor.Controls.Add(label11);
             StudentAssingmentEditor.Controls.Add(StudentAssingmentEditorCourseName);
-            StudentAssingmentEditor.Location = new Point(104, 414);
+            StudentAssingmentEditor.Location = new Point(23, 9);
             StudentAssingmentEditor.Name = "StudentAssingmentEditor";
             StudentAssingmentEditor.Size = new Size(632, 364);
             StudentAssingmentEditor.TabIndex = 1;
+            // 
+            // AddCoursePanel
+            // 
+            AddCoursePanel.Controls.Add(AddCourseButton);
+            AddCoursePanel.Controls.Add(NewCourseNameTextBox);
+            AddCoursePanel.Location = new Point(15, 10);
+            AddCoursePanel.Name = "AddCoursePanel";
+            AddCoursePanel.Size = new Size(601, 325);
+            AddCoursePanel.TabIndex = 3;
+            // 
+            // AddCourseButton
+            // 
+            AddCourseButton.Location = new Point(166, 163);
+            AddCourseButton.Name = "AddCourseButton";
+            AddCourseButton.Size = new Size(151, 34);
+            AddCourseButton.TabIndex = 1;
+            AddCourseButton.Text = "Add Course";
+            AddCourseButton.UseVisualStyleBackColor = true;
+            AddCourseButton.Click += AddCourseButton_Click;
+            // 
+            // NewCourseNameTextBox
+            // 
+            NewCourseNameTextBox.Location = new Point(60, 85);
+            NewCourseNameTextBox.Name = "NewCourseNameTextBox";
+            NewCourseNameTextBox.PlaceholderText = "New course name";
+            NewCourseNameTextBox.Size = new Size(369, 31);
+            NewCourseNameTextBox.TabIndex = 0;
             // 
             // StudentAssingmentEditorBack
             // 
@@ -349,16 +463,123 @@
             StudentAssingmentEditorBack.UseVisualStyleBackColor = true;
             StudentAssingmentEditorBack.Click += StudentAssingmentEditorBack_Click;
             // 
+            // StudentAssingmentEditorComment
+            // 
+            StudentAssingmentEditorComment.Location = new Point(57, 261);
+            StudentAssingmentEditorComment.Name = "StudentAssingmentEditorComment";
+            StudentAssingmentEditorComment.PlaceholderText = "New Comment";
+            StudentAssingmentEditorComment.Size = new Size(477, 31);
+            StudentAssingmentEditorComment.TabIndex = 7;
+            // 
+            // label13
+            // 
+            label13.AutoSize = true;
+            label13.Location = new Point(57, 98);
+            label13.Name = "label13";
+            label13.Size = new Size(99, 25);
+            label13.TabIndex = 6;
+            label13.Text = "Comments";
+            // 
+            // StudentAssingmentEditorComments
+            // 
+            StudentAssingmentEditorComments.FormattingEnabled = true;
+            StudentAssingmentEditorComments.ItemHeight = 25;
+            StudentAssingmentEditorComments.Location = new Point(56, 126);
+            StudentAssingmentEditorComments.Name = "StudentAssingmentEditorComments";
+            StudentAssingmentEditorComments.Size = new Size(478, 129);
+            StudentAssingmentEditorComments.TabIndex = 5;
+            // 
+            // StudentAssingmentEditorTotalPoints
+            // 
+            StudentAssingmentEditorTotalPoints.Location = new Point(414, 49);
+            StudentAssingmentEditorTotalPoints.Name = "StudentAssingmentEditorTotalPoints";
+            StudentAssingmentEditorTotalPoints.ReadOnly = true;
+            StudentAssingmentEditorTotalPoints.Size = new Size(150, 31);
+            StudentAssingmentEditorTotalPoints.TabIndex = 4;
+            // 
+            // label12
+            // 
+            label12.AutoSize = true;
+            label12.Location = new Point(302, 49);
+            label12.Name = "label12";
+            label12.Size = new Size(106, 25);
+            label12.TabIndex = 3;
+            label12.Text = "Total Points:";
+            // 
+            // StudentAssingmentEditorPointsScored
+            // 
+            StudentAssingmentEditorPointsScored.Location = new Point(139, 49);
+            StudentAssingmentEditorPointsScored.Name = "StudentAssingmentEditorPointsScored";
+            StudentAssingmentEditorPointsScored.ReadOnly = true;
+            StudentAssingmentEditorPointsScored.Size = new Size(150, 31);
+            StudentAssingmentEditorPointsScored.TabIndex = 2;
+            // 
+            // label11
+            // 
+            label11.AutoSize = true;
+            label11.Location = new Point(15, 49);
+            label11.Name = "label11";
+            label11.Size = new Size(122, 25);
+            label11.TabIndex = 1;
+            label11.Text = "Points scored:";
+            // 
+            // StudentAssingmentEditorCourseName
+            // 
+            StudentAssingmentEditorCourseName.AutoSize = true;
+            StudentAssingmentEditorCourseName.Location = new Point(204, 16);
+            StudentAssingmentEditorCourseName.Name = "StudentAssingmentEditorCourseName";
+            StudentAssingmentEditorCourseName.Size = new Size(176, 25);
+            StudentAssingmentEditorCourseName.TabIndex = 0;
+            StudentAssingmentEditorCourseName.Text = "<assingment name>";
+            // 
             // StudentCourseDisplay
             // 
+            StudentCourseDisplay.Controls.Add(label10);
+            StudentCourseDisplay.Controls.Add(GPATextBox);
+            StudentCourseDisplay.Controls.Add(label4);
+            StudentCourseDisplay.Controls.Add(CourseGradeTextBox);
             StudentCourseDisplay.Controls.Add(StudentCourseDisplayBackButton);
             StudentCourseDisplay.Controls.Add(label6);
             StudentCourseDisplay.Controls.Add(AssignmentListBoxStudent);
             StudentCourseDisplay.Controls.Add(CourseNameLableStudent);
-            StudentCourseDisplay.Location = new Point(10, 0);
+            StudentCourseDisplay.Location = new Point(14, 3);
             StudentCourseDisplay.Name = "StudentCourseDisplay";
             StudentCourseDisplay.Size = new Size(597, 354);
             StudentCourseDisplay.TabIndex = 1;
+            // 
+            // label10
+            // 
+            label10.AutoSize = true;
+            label10.Location = new Point(228, 36);
+            label10.Name = "label10";
+            label10.Size = new Size(45, 25);
+            label10.TabIndex = 7;
+            label10.Text = "GPA";
+            // 
+            // GPATextBox
+            // 
+            GPATextBox.Location = new Point(176, 83);
+            GPATextBox.Name = "GPATextBox";
+            GPATextBox.ReadOnly = true;
+            GPATextBox.Size = new Size(150, 31);
+            GPATextBox.TabIndex = 6;
+            // 
+            // label4
+            // 
+            label4.AutoSize = true;
+            label4.Location = new Point(332, 36);
+            label4.Name = "label4";
+            label4.Size = new Size(148, 25);
+            label4.TabIndex = 5;
+            label4.Text = "Course grade (%)";
+            // 
+            // CourseGradeTextBox
+            // 
+            CourseGradeTextBox.Location = new Point(332, 83);
+            CourseGradeTextBox.Name = "CourseGradeTextBox";
+            CourseGradeTextBox.ReadOnly = true;
+            CourseGradeTextBox.Size = new Size(150, 31);
+            CourseGradeTextBox.TabIndex = 4;
             // 
             // StudentCourseDisplayBackButton
             // 
@@ -373,19 +594,20 @@
             // label6
             // 
             label6.AutoSize = true;
-            label6.Location = new Point(97, 73);
+            label6.Location = new Point(89, 117);
             label6.Name = "label6";
             label6.Size = new Size(114, 25);
             label6.TabIndex = 2;
             label6.Text = "Assignments";
+            label6.Click += label6_Click;
             // 
             // AssignmentListBoxStudent
             // 
             AssignmentListBoxStudent.FormattingEnabled = true;
             AssignmentListBoxStudent.ItemHeight = 25;
-            AssignmentListBoxStudent.Location = new Point(89, 109);
+            AssignmentListBoxStudent.Location = new Point(89, 159);
             AssignmentListBoxStudent.Name = "AssignmentListBoxStudent";
-            AssignmentListBoxStudent.Size = new Size(455, 204);
+            AssignmentListBoxStudent.Size = new Size(455, 154);
             AssignmentListBoxStudent.TabIndex = 1;
             AssignmentListBoxStudent.SelectedIndexChanged += AssignmentListBoxStudent_SelectedIndexChanged;
             // 
@@ -401,7 +623,6 @@
             // TeacherAssignmentEditor
             // 
             TeacherAssignmentEditor.Controls.Add(TeacherAssignmentEditorSave);
-            TeacherAssignmentEditor.Controls.Add(CreateAccountpanel);
             TeacherAssignmentEditor.Controls.Add(TeacherAssingmentEditorNewComment);
             TeacherAssignmentEditor.Controls.Add(TeacherAssingmentEditorComments);
             TeacherAssignmentEditor.Controls.Add(TeacherAssignmentEditorTotalPoints);
@@ -410,7 +631,7 @@
             TeacherAssignmentEditor.Controls.Add(label8);
             TeacherAssignmentEditor.Controls.Add(TeacherAssignmentEditorAssignmentName);
             TeacherAssignmentEditor.Controls.Add(TeacherAssignmentEditorStudentName);
-            TeacherAssignmentEditor.Location = new Point(0, 3);
+            TeacherAssignmentEditor.Location = new Point(23, 5);
             TeacherAssignmentEditor.Name = "TeacherAssignmentEditor";
             TeacherAssignmentEditor.Size = new Size(660, 371);
             TeacherAssignmentEditor.TabIndex = 1;
@@ -424,52 +645,6 @@
             TeacherAssignmentEditorSave.Text = "Save and Back";
             TeacherAssignmentEditorSave.UseVisualStyleBackColor = true;
             TeacherAssignmentEditorSave.Click += TeacherAssignmentEditorSave_Click;
-            // 
-            // CreateAccountpanel
-            // 
-            CreateAccountpanel.Controls.Add(CreateAccountCreate);
-            CreateAccountpanel.Controls.Add(UserTypeDropDown);
-            CreateAccountpanel.Controls.Add(CreateAccountPassword);
-            CreateAccountpanel.Controls.Add(CreateAccountUserName);
-            CreateAccountpanel.Location = new Point(4, 1);
-            CreateAccountpanel.Name = "CreateAccountpanel";
-            CreateAccountpanel.Size = new Size(648, 357);
-            CreateAccountpanel.TabIndex = 2;
-            // 
-            // CreateAccountCreate
-            // 
-            CreateAccountCreate.Location = new Point(220, 240);
-            CreateAccountCreate.Name = "CreateAccountCreate";
-            CreateAccountCreate.Size = new Size(154, 34);
-            CreateAccountCreate.TabIndex = 3;
-            CreateAccountCreate.Text = "Create account";
-            CreateAccountCreate.UseVisualStyleBackColor = true;
-            CreateAccountCreate.Click += CreateAccountCreate_Click;
-            // 
-            // UserTypeDropDown
-            // 
-            UserTypeDropDown.DropDownStyle = ComboBoxStyle.DropDownList;
-            UserTypeDropDown.FormattingEnabled = true;
-            UserTypeDropDown.Location = new Point(203, 175);
-            UserTypeDropDown.Name = "UserTypeDropDown";
-            UserTypeDropDown.Size = new Size(182, 33);
-            UserTypeDropDown.TabIndex = 2;
-            // 
-            // CreateAccountPassword
-            // 
-            CreateAccountPassword.Location = new Point(224, 120);
-            CreateAccountPassword.Name = "CreateAccountPassword";
-            CreateAccountPassword.PlaceholderText = "Password";
-            CreateAccountPassword.Size = new Size(150, 31);
-            CreateAccountPassword.TabIndex = 1;
-            // 
-            // CreateAccountUserName
-            // 
-            CreateAccountUserName.Location = new Point(224, 70);
-            CreateAccountUserName.Name = "CreateAccountUserName";
-            CreateAccountUserName.PlaceholderText = "Username";
-            CreateAccountUserName.Size = new Size(150, 31);
-            CreateAccountUserName.TabIndex = 0;
             // 
             // TeacherAssingmentEditorNewComment
             // 
@@ -542,9 +717,11 @@
             // 
             TeacherViewOfStudent.Controls.Add(TeacherViewOfStudentBackButton);
             TeacherViewOfStudent.Controls.Add(label7);
+            TeacherViewOfStudent.Controls.Add(Menu);
+            TeacherViewOfStudent.Controls.Add(StudentCourseDisplay);
             TeacherViewOfStudent.Controls.Add(TeacherViewStudentAssignmentsList);
             TeacherViewOfStudent.Controls.Add(StudentNameLabel);
-            TeacherViewOfStudent.Location = new Point(10, 3);
+            TeacherViewOfStudent.Location = new Point(18, 8);
             TeacherViewOfStudent.Name = "TeacherViewOfStudent";
             TeacherViewOfStudent.Size = new Size(657, 349);
             TeacherViewOfStudent.TabIndex = 1;
@@ -588,113 +765,16 @@
             StudentNameLabel.Text = "<Student name>";
             StudentNameLabel.Click += StudentNameLabel_Click;
             // 
-            // StudentAssingmentEditorComment
-            // 
-            StudentAssingmentEditorComment.Location = new Point(57, 261);
-            StudentAssingmentEditorComment.Name = "StudentAssingmentEditorComment";
-            StudentAssingmentEditorComment.PlaceholderText = "New Comment";
-            StudentAssingmentEditorComment.Size = new Size(477, 31);
-            StudentAssingmentEditorComment.TabIndex = 7;
-            // 
-            // label13
-            // 
-            label13.AutoSize = true;
-            label13.Location = new Point(57, 98);
-            label13.Name = "label13";
-            label13.Size = new Size(99, 25);
-            label13.TabIndex = 6;
-            label13.Text = "Comments";
-            // 
-            // StudentAssingmentEditorComments
-            // 
-            StudentAssingmentEditorComments.FormattingEnabled = true;
-            StudentAssingmentEditorComments.ItemHeight = 25;
-            StudentAssingmentEditorComments.Location = new Point(56, 126);
-            StudentAssingmentEditorComments.Name = "StudentAssingmentEditorComments";
-            StudentAssingmentEditorComments.Size = new Size(478, 129);
-            StudentAssingmentEditorComments.TabIndex = 5;
-            // 
-            // StudentAssingmentEditorTotalPoints
-            // 
-            StudentAssingmentEditorTotalPoints.Location = new Point(414, 49);
-            StudentAssingmentEditorTotalPoints.Name = "StudentAssingmentEditorTotalPoints";
-            StudentAssingmentEditorTotalPoints.ReadOnly = true;
-            StudentAssingmentEditorTotalPoints.Size = new Size(150, 31);
-            StudentAssingmentEditorTotalPoints.TabIndex = 4;
-            // 
-            // label12
-            // 
-            label12.AutoSize = true;
-            label12.Location = new Point(302, 49);
-            label12.Name = "label12";
-            label12.Size = new Size(106, 25);
-            label12.TabIndex = 3;
-            label12.Text = "Total Points:";
-            // 
-            // StudentAssingmentEditorPointsScored
-            // 
-            StudentAssingmentEditorPointsScored.Location = new Point(139, 49);
-            StudentAssingmentEditorPointsScored.Name = "StudentAssingmentEditorPointsScored";
-            StudentAssingmentEditorPointsScored.ReadOnly = true;
-            StudentAssingmentEditorPointsScored.Size = new Size(150, 31);
-            StudentAssingmentEditorPointsScored.TabIndex = 2;
-            // 
-            // label11
-            // 
-            label11.AutoSize = true;
-            label11.Location = new Point(15, 49);
-            label11.Name = "label11";
-            label11.Size = new Size(122, 25);
-            label11.TabIndex = 1;
-            label11.Text = "Points scored:";
-            // 
-            // StudentAssingmentEditorCourseName
-            // 
-            StudentAssingmentEditorCourseName.AutoSize = true;
-            StudentAssingmentEditorCourseName.Location = new Point(204, 16);
-            StudentAssingmentEditorCourseName.Name = "StudentAssingmentEditorCourseName";
-            StudentAssingmentEditorCourseName.Size = new Size(176, 25);
-            StudentAssingmentEditorCourseName.TabIndex = 0;
-            StudentAssingmentEditorCourseName.Text = "<assingment name>";
-            // 
             // courseList
             // 
-            courseList.Controls.Add(AddCoursePanel);
             courseList.Controls.Add(CreateCourseButton);
             courseList.Controls.Add(CourseListBackButton);
             courseList.Controls.Add(CourselistBox);
             courseList.Controls.Add(label3);
-            courseList.Location = new Point(104, 425);
+            courseList.Location = new Point(3, 6);
             courseList.Name = "courseList";
             courseList.Size = new Size(643, 353);
             courseList.TabIndex = 1;
-            // 
-            // AddCoursePanel
-            // 
-            AddCoursePanel.Controls.Add(AddCourseButton);
-            AddCoursePanel.Controls.Add(NewCourseNameTextBox);
-            AddCoursePanel.Location = new Point(23, 12);
-            AddCoursePanel.Name = "AddCoursePanel";
-            AddCoursePanel.Size = new Size(601, 325);
-            AddCoursePanel.TabIndex = 3;
-            // 
-            // AddCourseButton
-            // 
-            AddCourseButton.Location = new Point(166, 163);
-            AddCourseButton.Name = "AddCourseButton";
-            AddCourseButton.Size = new Size(151, 34);
-            AddCourseButton.TabIndex = 1;
-            AddCourseButton.Text = "Add Course";
-            AddCourseButton.UseVisualStyleBackColor = true;
-            AddCourseButton.Click += AddCourseButton_Click;
-            // 
-            // NewCourseNameTextBox
-            // 
-            NewCourseNameTextBox.Location = new Point(60, 85);
-            NewCourseNameTextBox.Name = "NewCourseNameTextBox";
-            NewCourseNameTextBox.PlaceholderText = "New course name";
-            NewCourseNameTextBox.Size = new Size(369, 31);
-            NewCourseNameTextBox.TabIndex = 0;
             // 
             // CreateCourseButton
             // 
@@ -735,51 +815,14 @@
             label3.TabIndex = 0;
             label3.Text = "Courses";
             // 
-            // CreateAssignmentPanel
-            // 
-            CreateAssignmentPanel.Controls.Add(CreateAssignmentButton);
-            CreateAssignmentPanel.Controls.Add(MaxPointsTextBox);
-            CreateAssignmentPanel.Controls.Add(AssignmentTitleTextBox);
-            CreateAssignmentPanel.Location = new Point(800, 12);
-            CreateAssignmentPanel.Name = "CreateAssignmentPanel";
-            CreateAssignmentPanel.Size = new Size(507, 357);
-            CreateAssignmentPanel.TabIndex = 2;
-            // 
-            // CreateAssignmentButton
-            // 
-            CreateAssignmentButton.Location = new Point(176, 202);
-            CreateAssignmentButton.Name = "CreateAssignmentButton";
-            CreateAssignmentButton.Size = new Size(177, 34);
-            CreateAssignmentButton.TabIndex = 2;
-            CreateAssignmentButton.Text = "Create Assignment";
-            CreateAssignmentButton.UseVisualStyleBackColor = true;
-            CreateAssignmentButton.Click += CreateAssignmentButton_Click;
-            // 
-            // MaxPointsTextBox
-            // 
-            MaxPointsTextBox.Location = new Point(144, 134);
-            MaxPointsTextBox.Name = "MaxPointsTextBox";
-            MaxPointsTextBox.PlaceholderText = "Max points";
-            MaxPointsTextBox.Size = new Size(243, 31);
-            MaxPointsTextBox.TabIndex = 1;
-            // 
-            // AssignmentTitleTextBox
-            // 
-            AssignmentTitleTextBox.Location = new Point(144, 77);
-            AssignmentTitleTextBox.Name = "AssignmentTitleTextBox";
-            AssignmentTitleTextBox.PlaceholderText = "Assignment title";
-            AssignmentTitleTextBox.Size = new Size(243, 31);
-            AssignmentTitleTextBox.TabIndex = 0;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(10F, 25F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1359, 885);
-            Controls.Add(CreateAssignmentPanel);
+            Controls.Add(TeacherViewOfStudent);
             Controls.Add(StudentAssingmentEditor);
-            Controls.Add(Menu);
-            Controls.Add(courseList);
+            Controls.Add(TeacherAssignmentEditor);
             Controls.Add(Login);
             Name = "Form1";
             Text = "Form1";
@@ -788,24 +831,24 @@
             Login.PerformLayout();
             CourseDisplay.ResumeLayout(false);
             CourseDisplay.PerformLayout();
+            CreateAssignmentPanel.ResumeLayout(false);
+            CreateAssignmentPanel.PerformLayout();
+            CreateAccountpanel.ResumeLayout(false);
+            CreateAccountpanel.PerformLayout();
             Menu.ResumeLayout(false);
             Menu.PerformLayout();
             StudentAssingmentEditor.ResumeLayout(false);
             StudentAssingmentEditor.PerformLayout();
+            AddCoursePanel.ResumeLayout(false);
+            AddCoursePanel.PerformLayout();
             StudentCourseDisplay.ResumeLayout(false);
             StudentCourseDisplay.PerformLayout();
             TeacherAssignmentEditor.ResumeLayout(false);
             TeacherAssignmentEditor.PerformLayout();
-            CreateAccountpanel.ResumeLayout(false);
-            CreateAccountpanel.PerformLayout();
             TeacherViewOfStudent.ResumeLayout(false);
             TeacherViewOfStudent.PerformLayout();
             courseList.ResumeLayout(false);
             courseList.PerformLayout();
-            AddCoursePanel.ResumeLayout(false);
-            AddCoursePanel.PerformLayout();
-            CreateAssignmentPanel.ResumeLayout(false);
-            CreateAssignmentPanel.PerformLayout();
             ResumeLayout(false);
         }
 
@@ -879,5 +922,9 @@
         private Button CreateAssignmentButton;
         private TextBox MaxPointsTextBox;
         private TextBox AssignmentTitleTextBox;
+        private Label label4;
+        private TextBox CourseGradeTextBox;
+        private Label label10;
+        private TextBox GPATextBox;
     }
 }

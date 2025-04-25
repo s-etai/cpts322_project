@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace GradeTracker_Test
 {
-    public class Student : User
+    internal class Student : User
     {
         /// <summary>
         /// Keep all the students assignment info (their grade and comments spesific to them)
@@ -31,6 +31,40 @@ namespace GradeTracker_Test
         public override Assignment GetAssignment(Assignment courseAssignment)
         {
             return studentAssignments[courseAssignment];
+        }
+
+        public double CalculateGrade(Course course)
+        {
+            double scored = 0;
+            double total = 0;
+
+            foreach (Assignment courseAssignment in course.Assignments.Values)
+            {
+                scored += this.studentAssignments[courseAssignment].pointsScored;
+                total += this.studentAssignments[courseAssignment].FullPoints;
+            }
+
+            if (total != 0)
+            {
+                return (scored / total) * 100;
+            }
+            else
+            {
+                return 0;
+            }
+        }
+
+        public double CalculateGPA()
+        {
+            double total = 0;
+            double count = 0;
+            foreach(var course in this.Courses.Values)
+            {
+                total += this.CalculateGrade(course);
+                count++;
+            }
+
+            return ((total / count)/100)*4;
         }
     }
 }

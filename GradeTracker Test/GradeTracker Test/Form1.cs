@@ -7,7 +7,7 @@ namespace GradeTracker_Test
 {
     public partial class Form1 : Form
     {
-        Dictionary<string, User> userDictionary;
+        Dictionary<string, User> userDictionary = new Dictionary<string, User>();
         User currentUser;
         Course currentCourse;
         User studentForGrading; // The student that the teacher is changing the assignments of.
@@ -33,10 +33,11 @@ namespace GradeTracker_Test
 
 
             List<Assignment> testAssignments = new List<Assignment>();
+            List<Assignment> testAssignments2 = new List<Assignment> { new Assignment("Draw", 10), new Assignment("Paint", 20) };
             testAssignments.Add((Assignment)check1);
             testAssignments.Add((Assignment)check2);
             Course test1 = new Course("math", testStudents, testAssignments);
-            Course test2 = new Course("art", testStudents, testAssignments);
+            Course test2 = new Course("art", testStudents, testAssignments2);
 
 
             userDictionary["elliott"].Courses["math"] = test1;
@@ -200,7 +201,8 @@ namespace GradeTracker_Test
                 // switch panels.
                 courseList.Visible = false;
                 StudentCourseDisplay.Visible = true;
-
+                CourseGradeTextBox.Text = ((Student)currentUser).CalculateGrade(currentCourse).ToString("F2");
+                GPATextBox.Text = ((Student)currentUser).CalculateGPA().ToString("F3");
 
                 // Display course name.
                 CourseNameLableStudent.Text = currentCourse.CourseName;
@@ -516,6 +518,11 @@ namespace GradeTracker_Test
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.SaveTracker();
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
