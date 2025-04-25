@@ -118,6 +118,8 @@ namespace GradeTracker_Test
             CreateAccountpanel.Visible = false;
             this.Controls.Add(this.AddCoursePanel);
             AddCoursePanel.Visible = false;
+            this.Controls.Add(this.CreateAssignmentPanel);
+            CreateAssignmentPanel.Visible = false;
 
             this.UserTypeDropDown.Items.Add("Student");
             this.UserTypeDropDown.Items.Add("Teacher");
@@ -154,10 +156,11 @@ namespace GradeTracker_Test
                 courseList.Visible = false;
                 CourseDisplay.Visible = true;
                 CourseNameLabel.Text = currentCourse.CourseName;
+                PopulateStudentSelectDropDown();
 
                 // Populate list box of students in course.
                 StudentListBox.Items.Clear();
-                StudentListBox.Items.AddRange(currentCourse.Students.Select(student => student.Username).ToArray());
+                StudentListBox.Items.AddRange(currentCourse.Students.Keys.ToArray());
 
                 // Populate list box of assingments in course.
                 AssignmentList.Items.Clear();
@@ -169,6 +172,7 @@ namespace GradeTracker_Test
                 // switch panels.
                 courseList.Visible = false;
                 StudentCourseDisplay.Visible = true;
+
 
                 // Display course name.
                 CourseNameLableStudent.Text = currentCourse.CourseName;
@@ -249,6 +253,7 @@ namespace GradeTracker_Test
         {
             TeacherViewOfStudent.Visible = false;
             CourseDisplay.Visible = true;
+            PopulateStudentSelectDropDown();
         }
 
         /// <summary>
@@ -361,6 +366,7 @@ namespace GradeTracker_Test
             // switch back to course display.
             StudentAssingmentEditor.Visible = false;
             StudentCourseDisplay.Visible = true;
+            PopulateStudentSelectDropDown();
         }
 
         private void CreateAccountBuuton_Click(object sender, EventArgs e)
@@ -410,7 +416,7 @@ namespace GradeTracker_Test
         /// <param name="e"></param>
         private void CreateCourseButton_Click(object sender, EventArgs e)
         {
-            if(currentUser.GetType() == typeof(Teacher))
+            if (currentUser.GetType() == typeof(Teacher))
             {
                 this.courseList.Visible = false;
                 this.AddCoursePanel.Visible = true;
@@ -432,6 +438,50 @@ namespace GradeTracker_Test
                 this.AddCoursePanel.Visible = false;
                 CourselistBox.Items.Clear();
                 CourselistBox.Items.AddRange(currentUser.Courses.Keys.ToArray());
+            }
+        }
+
+        public void PopulateStudentSelectDropDown()
+        {
+            this.StudentSelectDropDown.Items.Clear();
+            foreach (var user in userDictionary.Values)
+            {
+                if (user.GetType() == typeof(Student))
+                {
+                    this.StudentSelectDropDown.Items.Add(user.Username);
+                }
+            }
+        }
+
+        private void AddSelectedStudentButton_Click(object sender, EventArgs e)
+        {
+            if (this.StudentSelectDropDown.SelectedItem != null)
+            {
+                Student student = (Student)userDictionary[this.StudentSelectDropDown.SelectedItem.ToString()];
+                currentCourse.addStudent(student);
+                StudentListBox.Items.Clear();
+                StudentListBox.Items.AddRange(currentCourse.Students.Keys.ToArray());
+            }
+        }
+
+        private void CreateAssignmentSitchButton_Click(object sender, EventArgs e)
+        {
+            this.CourseDisplay.Visible = false;
+            this.CreateAssignmentPanel.Visible = true;
+        }
+
+        private void CreateAssignmentButton_Click(object sender, EventArgs e)
+        {
+            string newTitle = this.AssignmentTitleTextBox.Text;
+            string newMaxPoints = this.MaxPointsTextBox.Text;
+            if (!this.currentCourse.Assignments.ContainsKey(newTitle) && double.TryParse(newMaxPoints, out double Maxpoints))
+            {
+                currentCourse.addAssignment(new Assignment(newTitle, Maxpoints));
+                this.CourseDisplay.Visible = true;
+                this.CreateAssignmentPanel.Visible = false;
+                // Populate list box of assingments in course.
+                AssignmentList.Items.Clear();
+                AssignmentList.Items.AddRange(currentCourse.Assignments.Keys.ToArray());
             }
         }
     }

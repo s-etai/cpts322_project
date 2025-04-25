@@ -11,7 +11,7 @@ namespace GradeTracker_Test
         public string CourseName { get; set; }
 
         // not sure if this should be private
-        public List<Student> Students = new List<Student>();
+        public Dictionary<string, Student> Students = new Dictionary<string, Student>();
 
         // title assingment pair
         public Dictionary<string, Assignment> Assignments = new Dictionary<string, Assignment>();
@@ -40,8 +40,16 @@ namespace GradeTracker_Test
         /// <param name="student"></param>
         public void addStudent (Student student)
         {
-            Students.Add(student);
-            student.Courses.Add(this.CourseName, this);
+            if(!Students.ContainsKey(student.Username))
+            {
+                Students[student.Username] = student;
+                student.Courses.Add(this.CourseName, this);
+
+                foreach(var assignment in Assignments.Values)
+                {
+                    student.addAssignment(assignment);
+                }
+            }
         }
 
         /// <summary>
@@ -52,7 +60,7 @@ namespace GradeTracker_Test
         {
             Assignments[assignment.Title] = assignment;
 
-            foreach (var student in Students)
+            foreach (var student in Students.Values)
             {
                 student.addAssignment(assignment);
             }
