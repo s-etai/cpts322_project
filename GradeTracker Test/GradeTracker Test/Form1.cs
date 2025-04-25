@@ -5,7 +5,7 @@ namespace GradeTracker_Test
 {
     public partial class Form1 : Form
     {
-        Dictionary<string, User> userList = new Dictionary<string, User>();
+        Dictionary<string, User> userDictionary = new Dictionary<string, User>();
         User currentUser;
         Course currentCourse;
         User studentForGrading; // The student that the teacher is changing the assignments of.
@@ -18,11 +18,11 @@ namespace GradeTracker_Test
             init_panels();
 
             ///test teachers
-            program.initTeachers(userList);
+            program.initTeachers(userDictionary);
 
             List<Student> testStudents = new List<Student>();
-            testStudents.Add((Student)userList["jace"]);
-            testStudents.Add((Student)userList["stockton"]);
+            testStudents.Add((Student)userDictionary["jace"]);
+            testStudents.Add((Student)userDictionary["stockton"]);
 
             //test assignments
             Assignment check1 = new Assignment("GradeTracker", 100);
@@ -36,8 +36,8 @@ namespace GradeTracker_Test
             Course test2 = new Course("art", testStudents, testAssignments);
 
 
-            userList["elliott"].Courses["math"] = test1;
-            userList["elliott"].Courses["art"] = test2;
+            userDictionary["elliott"].Courses["math"] = test1;
+            userDictionary["elliott"].Courses["art"] = test2;
 
 
 
@@ -65,7 +65,7 @@ namespace GradeTracker_Test
         {
             //Login verification. switch to menu.
             bool userFound = false;
-            foreach (var user in userList)
+            foreach (var user in userDictionary)
             {
                 if (user.Key == Username.Text)
                 {
@@ -114,6 +114,12 @@ namespace GradeTracker_Test
             TeacherAssignmentEditor.Visible = false;
             this.Controls.Add(this.StudentAssingmentEditor);
             StudentAssingmentEditor.Visible = false;
+            this.Controls.Add(this.CreateAccountpanel);
+            CreateAccountpanel.Visible = false;
+
+            this.UserTypeDropDown.Items.Add("Student");
+            this.UserTypeDropDown.Items.Add("Teacher");
+            this.UserTypeDropDown.SelectedIndex = 0;
         }
 
         private void label1_Click(object sender, EventArgs e)
@@ -214,7 +220,7 @@ namespace GradeTracker_Test
         /// <param name="e"></param>
         private void StudentListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            studentForGrading = userList[StudentListBox.SelectedItem.ToString()];
+            studentForGrading = userDictionary[StudentListBox.SelectedItem.ToString()];
 
             //Switch panel
             CourseDisplay.Visible = false;
@@ -252,7 +258,7 @@ namespace GradeTracker_Test
         {
             //temparary get student's assingment copy for editing.
             string courseTitle = TeacherViewStudentAssignmentsList.SelectedItem.ToString();
-            
+
             //Assignment courseAssignmentRef = new Assignment("test", 10); // test 10 never used.
             ////temp get course assignmet ref
             //foreach (var assignment in currentCourse.Assignments)
@@ -317,7 +323,7 @@ namespace GradeTracker_Test
         {
             //temparary get student's assingment copy for editing.
             string courseTitle = AssignmentListBoxStudent.SelectedItem.ToString();
-            
+
             studentAssignmentRef = currentUser.GetAssignment(currentCourse.Assignments[courseTitle]); //Current user is the student.
 
             // Switch panel
@@ -353,6 +359,45 @@ namespace GradeTracker_Test
             // switch back to course display.
             StudentAssingmentEditor.Visible = false;
             StudentCourseDisplay.Visible = true;
+        }
+
+        private void CreateAccountBuuton_Click(object sender, EventArgs e)
+        {
+            this.Login.Visible = false;
+            this.CreateAccountpanel.Visible = true;
+        }
+
+        /// <summary>
+        /// Create acount.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
+        private void CreateAccountCreate_Click(object sender, EventArgs e)
+        {
+            string newUsername = this.CreateAccountUserName.Text;
+            string newPassword = this.CreateAccountPassword.Text;
+
+            // Add new student or teacher to dict depending on dropdown.
+            if (this.UserTypeDropDown.SelectedItem.ToString() == "Student")
+            {
+                if(!userDictionary.ContainsKey(newUsername))
+                {
+                    userDictionary[newUsername] = new Student(newUsername, newPassword);
+
+                    CreateAccountpanel.Visible = false;
+                    Login.Visible = true;
+                }
+            }
+            else
+            {
+                if (!userDictionary.ContainsKey(newUsername))
+                {
+                    userDictionary[newUsername] = new Teacher(newUsername, newPassword);
+
+                    CreateAccountpanel.Visible = false;
+                    Login.Visible = true;
+                }
+            }
         }
     }
 }
