@@ -153,7 +153,7 @@ namespace GradeTracker_Test
 
                 // Populate list box of assingments in course.
                 AssignmentList.Items.Clear();
-                AssignmentList.Items.AddRange(currentCourse.Assignments.Select(assignment => assignment.Title).ToArray());
+                AssignmentList.Items.AddRange(currentCourse.Assignments.Keys.ToArray());
             }
             else
             {
@@ -167,7 +167,7 @@ namespace GradeTracker_Test
 
                 // Populate List box.
                 AssignmentListBoxStudent.Items.Clear();
-                AssignmentListBoxStudent.Items.AddRange(currentCourse.Assignments.Select(assignment => assignment.Title).ToArray());
+                AssignmentListBoxStudent.Items.AddRange(currentCourse.Assignments.Keys.ToArray());
             }
 
 
@@ -223,7 +223,7 @@ namespace GradeTracker_Test
             StudentNameLabel.Text = studentForGrading.Username;
 
             TeacherViewStudentAssignmentsList.Items.Clear();
-            TeacherViewStudentAssignmentsList.Items.AddRange(currentCourse.Assignments.Select(assignment => assignment.Title).ToArray());
+            TeacherViewStudentAssignmentsList.Items.AddRange(currentCourse.Assignments.Keys.ToArray());
 
         }
 
@@ -252,16 +252,17 @@ namespace GradeTracker_Test
         {
             //temparary get student's assingment copy for editing.
             string courseTitle = TeacherViewStudentAssignmentsList.SelectedItem.ToString();
-            Assignment courseAssignmentRef = new Assignment("test", 10); // test 10 never used.
-            //temp get course assignmet ref
-            foreach (var assignment in currentCourse.Assignments)
-            {
-                if (assignment.Title == courseTitle)
-                {
-                    courseAssignmentRef = assignment;
-                }
-            }
-            studentAssignmentRef = studentForGrading.GetAssignment(courseAssignmentRef);
+            
+            //Assignment courseAssignmentRef = new Assignment("test", 10); // test 10 never used.
+            ////temp get course assignmet ref
+            //foreach (var assignment in currentCourse.Assignments)
+            //{
+            //    if (assignment.Title == courseTitle)
+            //    {
+            //        courseAssignmentRef = assignment;
+            //    }
+            //}
+            studentAssignmentRef = studentForGrading.GetAssignment(currentCourse.Assignments[courseTitle]);
 
             //Remove last comment
             TeacherAssingmentEditorNewComment.Text = string.Empty;
@@ -316,16 +317,8 @@ namespace GradeTracker_Test
         {
             //temparary get student's assingment copy for editing.
             string courseTitle = AssignmentListBoxStudent.SelectedItem.ToString();
-            Assignment courseAssignmentRef = new Assignment("test", 10); // test 10 never used.
-            //temp get course assignmet ref
-            foreach (var assignment in currentCourse.Assignments)
-            {
-                if (assignment.Title == courseTitle)
-                {
-                    courseAssignmentRef = assignment;
-                }
-            }
-            studentAssignmentRef = currentUser.GetAssignment(courseAssignmentRef); //Current user is the student.
+            
+            studentAssignmentRef = currentUser.GetAssignment(currentCourse.Assignments[courseTitle]); //Current user is the student.
 
             // Switch panel
             StudentCourseDisplay.Visible = false;

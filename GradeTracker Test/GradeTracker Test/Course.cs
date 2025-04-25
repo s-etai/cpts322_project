@@ -14,7 +14,7 @@ namespace GradeTracker_Test
         public List<Student> Students = new List<Student>();
 
         // title assingment pair
-        public List<Assignment> Assignments = new List<Assignment>();
+        public Dictionary<string, Assignment> Assignments = new Dictionary<string, Assignment>();
 
 
         public Course(string courseName, List<Student> students, List<Assignment> assignments)
@@ -50,7 +50,7 @@ namespace GradeTracker_Test
         /// <param name="assignment"></param>
         public void addAssignment (Assignment assignment)
         {
-            Assignments.Add(assignment);
+            Assignments[assignment.Title] = assignment;
 
             foreach (var student in Students)
             {
