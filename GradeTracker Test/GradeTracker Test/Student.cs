@@ -33,17 +33,20 @@ namespace GradeTracker_Test
             return studentAssignments[courseAssignment];
         }
 
+        // Calculate grade in course by dividing all points scored by the total posible points.
         public double CalculateGrade(Course course)
         {
             double scored = 0;
             double total = 0;
 
+            // Get points from all assignments in the given course.
             foreach (Assignment courseAssignment in course.Assignments.Values)
             {
                 scored += this.studentAssignments[courseAssignment].pointsScored;
                 total += this.studentAssignments[courseAssignment].FullPoints;
             }
 
+            // Return grade as %.
             if (total != 0)
             {
                 return (scored / total) * 100;
@@ -54,6 +57,7 @@ namespace GradeTracker_Test
             }
         }
 
+        // Calculate gpa by averaging all grades from all courses and return on 4 point scale.
         public double CalculateGPA()
         {
             double total = 0;

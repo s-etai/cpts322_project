@@ -10,10 +10,10 @@ namespace GradeTracker_Test
     {
         public string CourseName { get; set; }
 
-        // not sure if this should be private
+        // Collection of sudents in the course
         public Dictionary<string, Student> Students = new Dictionary<string, Student>();
 
-        // title assingment pair
+        // title assingment pair of assingments in the course
         public Dictionary<string, Assignment> Assignments = new Dictionary<string, Assignment>();
 
 

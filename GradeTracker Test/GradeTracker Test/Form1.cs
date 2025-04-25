@@ -7,22 +7,26 @@ namespace GradeTracker_Test
 {
     public partial class Form1 : Form
     {
-        Dictionary<string, User> userDictionary = new Dictionary<string, User>();
-        User currentUser;
-        Course currentCourse;
+        Dictionary<string, User> userDictionary = new Dictionary<string, User>(); // All users of the app, username as key.
+        User currentUser; // The user that logged in.
+        Course currentCourse; // The course that was selected.
         User studentForGrading; // The student that the teacher is changing the assignments of.
         Assignment studentAssignmentRef; // The assingment in student that holds there grade for the assingment.
         Wrapper program = new Wrapper();
 
+        /// <summary>
+        /// Runs when form opens.
+        /// </summary>
         public Form1()
         {
-            this.LoadTracker();
+            this.LoadTracker(); // load the state of program from "data base" .json file.
 
             init_panels();
 
 
-            program.initTeachers(userDictionary);
+            program.initTeachers(userDictionary); // create sample accounts for demo.
 
+            // Create courses and assignments fro demo.
             List<Student> testStudents = new List<Student>();
             testStudents.Add((Student)userDictionary["jace"]);
             testStudents.Add((Student)userDictionary["stockton"]);
@@ -47,6 +51,9 @@ namespace GradeTracker_Test
 
         }
 
+        /// <summary>
+        /// Save the state of the program to the "Data base" .json file.
+        /// </summary>
         private void SaveTracker()
         {
             string exePath = AppDomain.CurrentDomain.BaseDirectory;
@@ -55,6 +62,9 @@ namespace GradeTracker_Test
             File.WriteAllText(filePath, json);
         }
 
+        /// <summary>
+        /// Load from the "data base" .json file.
+        /// </summary>
         private void LoadTracker()
         {
             string exePath = AppDomain.CurrentDomain.BaseDirectory;
@@ -150,6 +160,7 @@ namespace GradeTracker_Test
             this.Controls.Add(this.CreateAssignmentPanel);
             CreateAssignmentPanel.Visible = false;
 
+            // Init the users type select dropdown.
             this.UserTypeDropDown.Items.Add("Student");
             this.UserTypeDropDown.Items.Add("Teacher");
             this.UserTypeDropDown.SelectedIndex = 0;
@@ -171,6 +182,11 @@ namespace GradeTracker_Test
 
         }
 
+        /// <summary>
+        /// When user selects course switch to the correct page depending on the user type.
+        /// </summary>
+        /// <param name="sender"></param>
+        /// <param name="e"></param>
         private void CourselistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
             // Set current course to the course selected with the course dictionary in the user object.
@@ -217,14 +233,10 @@ namespace GradeTracker_Test
 
         private void AssignmentList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //Assignment.Visible = false;
-            //AssignmentList.Visible = true;
-            //CourseNameLabel.Text = currentCourse.CourseName;
-
-            //StudentListBox.Items.Clear();
-            //StudentListBox.Items.AddRange(currentCourse.Students.Select(student => student.Username).ToArray());
+            
         }
 
+        // Back button.
         private void TeacherCourseDetailsBackButton_Click(object sender, EventArgs e)
         {
             CourseDisplay.Visible = false;
@@ -296,15 +308,6 @@ namespace GradeTracker_Test
             //temparary get student's assingment copy for editing.
             string courseTitle = TeacherViewStudentAssignmentsList.SelectedItem.ToString();
 
-            //Assignment courseAssignmentRef = new Assignment("test", 10); // test 10 never used.
-            ////temp get course assignmet ref
-            //foreach (var assignment in currentCourse.Assignments)
-            //{
-            //    if (assignment.Title == courseTitle)
-            //    {
-            //        courseAssignmentRef = assignment;
-            //    }
-            //}
             studentAssignmentRef = studentForGrading.GetAssignment(currentCourse.Assignments[courseTitle]);
 
             //Remove last comment
@@ -399,6 +402,7 @@ namespace GradeTracker_Test
             PopulateStudentSelectDropDown();
         }
 
+        // Switch to create account page.
         private void CreateAccountBuuton_Click(object sender, EventArgs e)
         {
             this.Login.Visible = false;
@@ -406,12 +410,13 @@ namespace GradeTracker_Test
         }
 
         /// <summary>
-        /// Create acount.
+        /// Create acount with inputs from create account page.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void CreateAccountCreate_Click(object sender, EventArgs e)
         {
+            // Get input.
             string newUsername = this.CreateAccountUserName.Text;
             string newPassword = this.CreateAccountPassword.Text;
 
@@ -422,6 +427,7 @@ namespace GradeTracker_Test
                 {
                     userDictionary[newUsername] = new Student(newUsername, newPassword);
 
+                    // Switch page.
                     CreateAccountpanel.Visible = false;
                     Login.Visible = true;
                 }
@@ -432,6 +438,7 @@ namespace GradeTracker_Test
                 {
                     userDictionary[newUsername] = new Teacher(newUsername, newPassword);
 
+                    // Switch page.
                     CreateAccountpanel.Visible = false;
                     Login.Visible = true;
                 }
@@ -446,6 +453,7 @@ namespace GradeTracker_Test
         /// <param name="e"></param>
         private void CreateCourseButton_Click(object sender, EventArgs e)
         {
+            // Go to the create account interface only if the current user is a teacher.
             if (currentUser.GetType() == typeof(Teacher))
             {
                 this.courseList.Visible = false;
@@ -454,23 +462,27 @@ namespace GradeTracker_Test
         }
 
         /// <summary>
-        /// Add course.
+        /// Add course to teacher's dict of courses.
         /// </summary>
         /// <param name="sender"></param>
         /// <param name="e"></param>
         private void AddCourseButton_Click(object sender, EventArgs e)
         {
+            // Get input.
             string newName = NewCourseNameTextBox.Text;
+
+            // Add the course and update ui to match new course dictionary.
             if (!currentUser.Courses.ContainsKey(newName))
             {
-                currentUser.Courses[newName] = new Course(newName, new List<Student>(), new List<Assignment>());
-                this.courseList.Visible = true;
+                currentUser.Courses[newName] = new Course(newName, new List<Student>(), new List<Assignment>()); // add course.
+                this.courseList.Visible = true; // switch page.
                 this.AddCoursePanel.Visible = false;
-                CourselistBox.Items.Clear();
+                CourselistBox.Items.Clear(); // update ui.
                 CourselistBox.Items.AddRange(currentUser.Courses.Keys.ToArray());
             }
         }
 
+        // Put all the students accounts that exist into the dropdown to select witch student to add.
         public void PopulateStudentSelectDropDown()
         {
             this.StudentSelectDropDown.Items.Clear();
@@ -483,13 +495,14 @@ namespace GradeTracker_Test
             }
         }
 
+        // Add the student selected in the selection dropdown to the course.
         private void AddSelectedStudentButton_Click(object sender, EventArgs e)
         {
             if (this.StudentSelectDropDown.SelectedItem != null)
             {
                 Student student = (Student)userDictionary[this.StudentSelectDropDown.SelectedItem.ToString()];
                 currentCourse.addStudent(student);
-                StudentListBox.Items.Clear();
+                StudentListBox.Items.Clear(); // Update ui to match new dict of students.
                 StudentListBox.Items.AddRange(currentCourse.Students.Keys.ToArray());
             }
         }
@@ -500,21 +513,27 @@ namespace GradeTracker_Test
             this.CreateAssignmentPanel.Visible = true;
         }
 
+        // Add assignment to the current course from the user input course info.
         private void CreateAssignmentButton_Click(object sender, EventArgs e)
         {
+            // Get course info from ui.
             string newTitle = this.AssignmentTitleTextBox.Text;
             string newMaxPoints = this.MaxPointsTextBox.Text;
+
+            // Add to course.
             if (!this.currentCourse.Assignments.ContainsKey(newTitle) && double.TryParse(newMaxPoints, out double Maxpoints))
             {
                 currentCourse.addAssignment(new Assignment(newTitle, Maxpoints));
+                //switch page.
                 this.CourseDisplay.Visible = true;
                 this.CreateAssignmentPanel.Visible = false;
-                // Populate list box of assingments in course.
+                // Populate list box of assingments in course (update).
                 AssignmentList.Items.Clear();
                 AssignmentList.Items.AddRange(currentCourse.Assignments.Keys.ToArray());
             }
         }
 
+        // Save the state of the program when the form is closed.
         private void Form1_FormClosing(object sender, FormClosingEventArgs e)
         {
             this.SaveTracker();
