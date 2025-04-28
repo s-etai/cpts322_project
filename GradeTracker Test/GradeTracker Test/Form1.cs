@@ -32,8 +32,8 @@ namespace GradeTracker_Test
             testStudents.Add((Student)userDictionary["stockton"]);
 
             //test assignments
-            Assignment check1 = new Assignment("GradeTracker", 100);
-            Assignment check2 = new Assignment("Sprint2", 50);
+            Assignment check1 = new Assignment("Final", 100);
+            Assignment check2 = new Assignment("Midterm", 50);
 
 
             List<Assignment> testAssignments = new List<Assignment>();
@@ -189,44 +189,48 @@ namespace GradeTracker_Test
         /// <param name="e"></param>
         private void CourselistBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            // Set current course to the course selected with the course dictionary in the user object.
-            currentCourse = currentUser.Courses[CourselistBox.SelectedItem.ToString()];
-
-            // Differnt page shown depending on user type.
-            // Probably should use polymorphism somehow.
-            if (currentUser.GetType().Name == "Teacher")
+            if (CourselistBox.SelectedIndex != -1)
             {
-                //following is for teacher. 
-                // Switch panels.
-                courseList.Visible = false;
-                CourseDisplay.Visible = true;
-                CourseNameLabel.Text = currentCourse.CourseName;
-                PopulateStudentSelectDropDown();
+                // Set current course to the course selected with the course dictionary in the user object.
+                currentCourse = currentUser.Courses[CourselistBox.SelectedItem.ToString()];
 
-                // Populate list box of students in course.
-                StudentListBox.Items.Clear();
-                StudentListBox.Items.AddRange(currentCourse.Students.Keys.ToArray());
+                // Differnt page shown depending on user type.
+                // Probably should use polymorphism somehow.
+                if (currentUser.GetType().Name == "Teacher")
+                {
+                    //following is for teacher. 
+                    // Switch panels.
+                    courseList.Visible = false;
+                    CourseDisplay.Visible = true;
+                    CourseNameLabel.Text = currentCourse.CourseName;
+                    PopulateStudentSelectDropDown();
 
-                // Populate list box of assingments in course.
-                AssignmentList.Items.Clear();
-                AssignmentList.Items.AddRange(currentCourse.Assignments.Keys.ToArray());
+                    // Populate list box of students in course.
+                    StudentListBox.Items.Clear();
+                    StudentListBox.Items.AddRange(currentCourse.Students.Keys.ToArray());
+
+                    // Populate list box of assingments in course.
+                    AssignmentList.Items.Clear();
+                    AssignmentList.Items.AddRange(currentCourse.Assignments.Keys.ToArray());
+                }
+                else
+                {
+                    // If the user is a student.
+                    // switch panels.
+                    courseList.Visible = false;
+                    StudentCourseDisplay.Visible = true;
+                    CourseGradeTextBox.Text = ((Student)currentUser).CalculateGrade(currentCourse).ToString("F2");
+                    GPATextBox.Text = ((Student)currentUser).CalculateGPA().ToString("F3");
+
+                    // Display course name.
+                    CourseNameLableStudent.Text = currentCourse.CourseName;
+
+                    // Populate List box.
+                    AssignmentListBoxStudent.Items.Clear();
+                    AssignmentListBoxStudent.Items.AddRange(currentCourse.Assignments.Keys.ToArray());
+                }
             }
-            else
-            {
-                // If the user is a student.
-                // switch panels.
-                courseList.Visible = false;
-                StudentCourseDisplay.Visible = true;
-                CourseGradeTextBox.Text = ((Student)currentUser).CalculateGrade(currentCourse).ToString("F2");
-                GPATextBox.Text = ((Student)currentUser).CalculateGPA().ToString("F3");
-
-                // Display course name.
-                CourseNameLableStudent.Text = currentCourse.CourseName;
-
-                // Populate List box.
-                AssignmentListBoxStudent.Items.Clear();
-                AssignmentListBoxStudent.Items.AddRange(currentCourse.Assignments.Keys.ToArray());
-            }
+            
 
 
         }
@@ -268,17 +272,19 @@ namespace GradeTracker_Test
         /// <param name="e"></param>
         private void StudentListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            studentForGrading = userDictionary[StudentListBox.SelectedItem.ToString()];
+            if (StudentListBox.SelectedIndex != -1)
+            {
+                studentForGrading = userDictionary[StudentListBox.SelectedItem.ToString()];
 
-            //Switch panel
-            CourseDisplay.Visible = false;
-            TeacherViewOfStudent.Visible = true;
+                //Switch panel
+                CourseDisplay.Visible = false;
+                TeacherViewOfStudent.Visible = true;
 
-            StudentNameLabel.Text = studentForGrading.Username;
+                StudentNameLabel.Text = studentForGrading.Username;
 
-            TeacherViewStudentAssignmentsList.Items.Clear();
-            TeacherViewStudentAssignmentsList.Items.AddRange(currentCourse.Assignments.Keys.ToArray());
-
+                TeacherViewStudentAssignmentsList.Items.Clear();
+                TeacherViewStudentAssignmentsList.Items.AddRange(currentCourse.Assignments.Keys.ToArray());
+            }
         }
 
         private void StudentNameLabel_Click(object sender, EventArgs e)
@@ -305,28 +311,32 @@ namespace GradeTracker_Test
         /// <param name="e"></param>
         private void TeacherViewStudentAssignmentsList_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //temparary get student's assingment copy for editing.
-            string courseTitle = TeacherViewStudentAssignmentsList.SelectedItem.ToString();
+            if (TeacherViewStudentAssignmentsList.SelectedIndex != -1)
+            {
+                //temparary get student's assingment copy for editing.
+                string courseTitle = TeacherViewStudentAssignmentsList.SelectedItem.ToString();
 
-            studentAssignmentRef = studentForGrading.GetAssignment(currentCourse.Assignments[courseTitle]);
+                studentAssignmentRef = studentForGrading.GetAssignment(currentCourse.Assignments[courseTitle]);
 
-            //Remove last comment
-            TeacherAssingmentEditorNewComment.Text = string.Empty;
+                //Remove last comment
+                TeacherAssingmentEditorNewComment.Text = string.Empty;
 
-            //Display current grades and comments
-            TeacherAssignmentEditorPointsScored.Text = studentAssignmentRef.pointsScored.ToString();
-            TeacherAssignmentEditorTotalPoints.Text = studentAssignmentRef.FullPoints.ToString();
-            TeacherAssignmentEditorAssignmentName.Text = studentAssignmentRef.Title;
+                //Display current grades and comments
+                TeacherAssignmentEditorPointsScored.Text = studentAssignmentRef.pointsScored.ToString();
+                TeacherAssignmentEditorTotalPoints.Text = studentAssignmentRef.FullPoints.ToString();
+                TeacherAssignmentEditorAssignmentName.Text = studentAssignmentRef.Title;
 
-            TeacherAssingmentEditorComments.Items.Clear();
-            TeacherAssingmentEditorComments.Items.AddRange(studentAssignmentRef.comments.ToArray());
+                TeacherAssingmentEditorComments.Items.Clear();
+                TeacherAssingmentEditorComments.Items.AddRange(studentAssignmentRef.comments.ToArray());
 
 
-            //swithch panel
-            TeacherViewOfStudent.Visible = false;
-            TeacherAssignmentEditor.Visible = true;
+                //swithch panel
+                TeacherViewOfStudent.Visible = false;
+                TeacherAssignmentEditor.Visible = true;
 
-            TeacherAssignmentEditorStudentName.Text = studentForGrading.Username;
+                TeacherAssignmentEditorStudentName.Text = studentForGrading.Username;
+            }
+            
 
         }
 
@@ -361,26 +371,28 @@ namespace GradeTracker_Test
         /// <param name="e"></param>
         private void AssignmentListBoxStudent_SelectedIndexChanged(object sender, EventArgs e)
         {
-            //temparary get student's assingment copy for editing.
-            string courseTitle = AssignmentListBoxStudent.SelectedItem.ToString();
+            if (AssignmentListBoxStudent.SelectedIndex != -1)
+            {
+                //temparary get student's assingment copy for editing.
+                string courseTitle = AssignmentListBoxStudent.SelectedItem.ToString();
 
-            studentAssignmentRef = currentUser.GetAssignment(currentCourse.Assignments[courseTitle]); //Current user is the student.
+                studentAssignmentRef = currentUser.GetAssignment(currentCourse.Assignments[courseTitle]); //Current user is the student.
 
-            // Switch panel
-            StudentCourseDisplay.Visible = false;
-            StudentAssingmentEditor.Visible = true;
+                // Switch panel
+                StudentCourseDisplay.Visible = false;
+                StudentAssingmentEditor.Visible = true;
 
-            //Clear new comment input box.
-            StudentAssingmentEditorComment.Text = string.Empty;
+                //Clear new comment input box.
+                StudentAssingmentEditorComment.Text = string.Empty;
 
-            //Display grade and comments
-            StudentAssingmentEditorPointsScored.Text = studentAssignmentRef.pointsScored.ToString();
-            StudentAssingmentEditorTotalPoints.Text = studentAssignmentRef.FullPoints.ToString();
-            StudentAssingmentEditorCourseName.Text = studentAssignmentRef.Title;
+                //Display grade and comments
+                StudentAssingmentEditorPointsScored.Text = studentAssignmentRef.pointsScored.ToString();
+                StudentAssingmentEditorTotalPoints.Text = studentAssignmentRef.FullPoints.ToString();
+                StudentAssingmentEditorCourseName.Text = studentAssignmentRef.Title;
 
-            StudentAssingmentEditorComments.Items.Clear();
-            StudentAssingmentEditorComments.Items.AddRange(studentAssignmentRef.comments.ToArray());
-
+                StudentAssingmentEditorComments.Items.Clear();
+                StudentAssingmentEditorComments.Items.AddRange(studentAssignmentRef.comments.ToArray());
+            }
         }
 
         /// <summary>
